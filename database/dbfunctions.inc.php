@@ -12,9 +12,12 @@
         $products = array();        
         
         $i = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $products[$i] = new Product($row);
-            $i++;
+        if ($result !== FALSE)
+        {
+            while($row = mysqli_fetch_assoc($result)){
+                $products[$i] = new Product($row);
+                $i++;
+            }
         }
         unset($db);
         
@@ -32,9 +35,12 @@
         $categories = array();        
         
         $i = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $categories[$i] = new Category($row);
-            $i++;
+        if ($result !== FALSE)
+        {
+            while($row = mysqli_fetch_assoc($result)){
+                $categories[$i] = new Category($row);
+                $i++;
+            }
         }
         unset($db);
         
@@ -52,9 +58,13 @@
         $products = array();        
         
         $i = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $products[$i] = new Product($row);
-            $i++;
+
+        if ($result !== FALSE)
+        {
+            while($row = mysqli_fetch_assoc($result)){
+                $products[$i] = new Product($row);
+                $i++;
+            }
         }
         unset($db);
         

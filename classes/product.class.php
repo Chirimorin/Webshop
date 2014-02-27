@@ -15,8 +15,11 @@
                 $db = new DBClass();
                 $result = $db->runQuery("SELECT * FROM product WHERE id=$id");
                 
-                while($row = mysqli_fetch_assoc($result)){
-                    $this->properties = $row;
+                if ($result !== FALSE)
+                {
+                    while($row = mysqli_fetch_assoc($result)){
+                        $this->properties = $row;
+                    }
                 }
                 unset($db);
             }
