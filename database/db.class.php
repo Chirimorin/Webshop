@@ -9,7 +9,7 @@ class DBClass {
 	// Class constructor override
 	public function __construct() {
 
-		include_once "dbconfig.php";        
+		include_once "database/dbconfig.php";        
 			
 		$this->mysqli = 
 		new mysqli(DB_SERVER, DB_USER, DB_PASS, DB_NAME);

@@ -8,22 +8,31 @@
 		
 		public function __construct($id)
 		{
-			$this->$properties['test'] = 'Testing!';
+			echo("product constructor. Id: ".$id."<br />");
+			
+			include_once("database/db.class.php");
+			
+			$db = new DBClass();
+			$result = $db->runQuery("SELECT * FROM product WHERE id=$id");
+			
+			while($row = mysqli_fetch_assoc($result)){
+				$this->properties = $row;
+			}
 		}
 		
-		public function __get($property)
+		public function get($property)
 		{
-			if (isset($this->$properties[$property]))
+			if (isset($this->properties[$property]))
 			{
-				return $this->$properties[$property];
+				return $this->properties[$property];
 			}
 		}
 
-		public function __set($property, $value)
+		public function set($property, $value)
 		{
-			if (isset($this->$properties[$property]))
+			if (isset($this->properties[$property]))
 			{
-				$this->$properties[$property] = $value;
+				$this->properties[$property] = $value;
 			}
 		
 			return $this;
