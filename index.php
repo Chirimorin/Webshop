@@ -11,7 +11,7 @@
 		}
 		else
 		{
-			include("controllers/home.php");
+			include("controllers/404.php");
 		}
 	}
 	else

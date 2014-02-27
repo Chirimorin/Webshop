@@ -33,7 +33,8 @@
           <ul class="nav navbar-nav">
             <li <?php checkPage("home"); ?>><a href="index.php">Home</a></li>
             <li <?php checkPage("about"); ?>><a href="index.php?page=about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li <?php checkPage("contact"); ?>><a href="index.php?page=contact">Contact</a></li>
+            <li <?php checkPage("voortgang"); ?>><a href="index.php?page=voortgang">Voortgang</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
