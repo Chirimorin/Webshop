@@ -46,5 +46,20 @@
 		
 			return $this;
 		}
+        
+        function showCategoryBoxStart()
+        {
+            echo("<div class=\"panel panel-primary\">
+                    <div class=\"panel-heading\">
+                    <h3 class=\"panel-title\">".$this->get('name')."</h3>
+                    </div>
+                    <div class=\"panel-body\">");
+        }
+        
+        function showCategoryBoxEnd()
+        {
+            echo("</div>
+                    </div>");
+        }
 	}
 ?>

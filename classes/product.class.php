@@ -46,5 +46,19 @@
 		
 			return $this;
 		}
+        
+        public function showProductBox()
+        {
+            echo("<div class=\"col-sm-4\">
+                    <div class=\"panel panel-info\">
+                    <div class=\"panel-heading\">
+                    <h3 class=\"panel-title\">".$this->get('name')."</h3>
+                    </div>
+                    <div class=\"panel-body\">
+                    ".$this->get('description')."
+                    </div>
+                    </div>
+                    </div>");
+        }
 	}
 ?>

@@ -20,12 +20,21 @@
         }
         else
         {
-            echo("<b>Category: ".$category->get('name')."</b><br />");
             $products = get_products_by_category($category->get('id'));
-            foreach($products as $product)
+            
+            $category->showCategoryBoxStart();
+            if (count($products) > 0)
             {
-                echo("- Product: ".$product->get('name')."<br />");
+                foreach($products as $product)
+                {
+                    $product->showProductBox();
+                }
             }
+            else
+            {
+                echo("<div class=\"alert alert-warning\"><strong>No products have been found in this category.</strong><br /></div>");
+            }
+            $category->showCategoryBoxEnd();
         }
     }
     else //isset catid
