@@ -45,10 +45,6 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="<?php checkPage("home"); ?>"><a href="index.php">Home</a></li>
-            <li class="<?php checkPage("about"); ?>"><a href="index.php?page=about">About</a></li>
-            <li class="<?php checkPage("contact"); ?>"><a href="index.php?page=contact">Contact</a></li>
-            <li class="<?php checkPage("voortgang"); ?>"><a href="index.php?page=voortgang">Voortgang</a></li>
-			<li class="<?php checkPage("test"); ?>"><a href="index.php?page=test">Test</a></li>
             <li class="dropdown <?php checkPage("category"); ?>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -62,9 +58,12 @@
                         echo("\"><a href=\"index.php?page=category&catid=".$category->get('id')."\">".$category->get('name')."</a></li>");
                     }
                 ?>
-                
               </ul>
             </li>
+            <li class="<?php checkPage("about"); ?>"><a href="index.php?page=about">About</a></li>
+            <li class="<?php checkPage("contact"); ?>"><a href="index.php?page=contact">Contact</a></li>
+            <li class="<?php checkPage("voortgang"); ?>"><a href="index.php?page=voortgang">Voortgang</a></li>
+			<li class="<?php checkPage("test"); ?>"><a href="index.php?page=test">Test</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
