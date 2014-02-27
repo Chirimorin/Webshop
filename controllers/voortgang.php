@@ -25,7 +25,7 @@
                 Thomas
             </div>
             <div class="col-sm-4">
-                3 uur
+                4 uur
             </div>
             <div class="page-header"></div>
         </div>
@@ -39,6 +39,19 @@
             </div>
             <div class="col-sm-4">
                 ?
+            </div>
+            <div class="page-header"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-4">
+                Menu en items uit database halen
+            </div>
+            <div class="col-sm-4">
+                Thomas
+            </div>
+            <div class="col-sm-4">
+                2 uur
             </div>
             <div class="page-header"></div>
         </div>

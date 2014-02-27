@@ -49,13 +49,19 @@
         
         public function showProductBox()
         {
+            //TODO: load image from database
             echo("<div class=\"col-sm-4\">
                     <div class=\"panel panel-info\">
                     <div class=\"panel-heading\">
                     <h3 class=\"panel-title\">".$this->get('name')."</h3>
                     </div>
                     <div class=\"panel-body\">
-                    ".$this->get('description')."
+                    <div class=\"productContainer\">
+                    <img class=\"thumb\" src=\"images/L5res.thumb.jpg\" alt=\"".$this->get('name')."\"></img> 
+                    <div class=\"description\">".$this->get('description')."</div><br />&nbsp;
+                    </div>
+                    <div class=\"price\">Price: &euro;".$this->get('price')."</div><br />&nbsp;
+                    <button type=\"button\" class=\"btn btn-xs btn-default add-to-cart\">Add to cart</button>
                     </div>
                     </div>
                     </div>");

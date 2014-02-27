@@ -15,6 +15,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    
+    <link href="css/style.css" rel="stylesheet">
 	
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 
