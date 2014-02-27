@@ -8,16 +8,22 @@
 		
 		public function __construct($id)
 		{
-			echo("product constructor. Id: ".$id."<br />");
-			
-			include_once("database/db.class.php");
-			
-			$db = new DBClass();
-			$result = $db->runQuery("SELECT * FROM product WHERE id=$id");
-			
-			while($row = mysqli_fetch_assoc($result)){
-				$this->properties = $row;
-			}
+            if (is_int($id)) //id meegegeven, zoek in database
+            {
+                include_once("database/db.class.php");
+                
+                $db = new DBClass();
+                $result = $db->runQuery("SELECT * FROM product WHERE id=$id");
+                
+                while($row = mysqli_fetch_assoc($result)){
+                    $this->properties = $row;
+                }
+                unset($db);
+            }
+            if (is_array($id)) //array meegegeven, data gebruiken
+            {
+                $this->properties = $id;
+            }
 		}
 		
 		public function get($property)
