@@ -1,8 +1,17 @@
 <?php 
-	include('classes/product.class.php');
-	$product = new Product(2);
+    include_once('database/dbfunctions.inc.php');
+    
+    $categories = get_all_categories();
 	
-	echo("name: ".$product->get('name')."<br />");
+    foreach($categories as $category)
+    {
+        echo("<b>Category: ".$category->get('name')."</b><br />");
+        $products = get_products_by_category($category->get('id'));
+        foreach($products as $product)
+        {
+            echo("- Product: ".$product->get('name')."<br />");
+        }
+    }
 	
 	
 ?>
