@@ -35,6 +35,7 @@
             <li <?php checkPage("about"); ?>><a href="index.php?page=about">About</a></li>
             <li <?php checkPage("contact"); ?>><a href="index.php?page=contact">Contact</a></li>
             <li <?php checkPage("voortgang"); ?>><a href="index.php?page=voortgang">Voortgang</a></li>
+			<li <?php checkPage("test"); ?>><a href="index.php?page=test">Test</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
