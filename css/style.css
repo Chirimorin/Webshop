@@ -23,8 +23,16 @@
     width: 50px;
 }
 
+.item-title {
+    text-shadow:
+        /*-1px -1px #000,  
+         1px -1px #000,
+        -1px  1px #000,*/
+         1px  1px #000;
+}
+
 .very_common {
-    
+    color: #b5b2b5;
 }
 
 .common {

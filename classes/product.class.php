@@ -53,7 +53,7 @@
             echo("<div class=\"col-sm-4\">
                     <div class=\"panel panel-info\">
                     <div class=\"panel-heading\">
-                    <h3 class=\"panel-title ".$this->get('rarity')."\">".$this->get('name')."</h3>
+                    <h3 class=\"panel-title item-title ".$this->get('rarity')."\">".$this->get('name')."</h3>
                     </div>
                     <div class=\"panel-body\">
                     <div class=\"productContainer\">");
