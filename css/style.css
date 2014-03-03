@@ -22,3 +22,19 @@
 .amount {
     width: 50px;
 }
+
+.very_common {
+    
+}
+
+.common {
+    color: #8cffc5;
+}
+
+.rare {
+    color: #ad8aff;
+}
+
+.very_rare {
+    color: #f78aef;
+}
