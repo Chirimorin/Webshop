@@ -15,6 +15,10 @@
     float: right;
 }
 
-.add-to-cart {
+.cart {
     float: right;
+}
+
+.amount {
+    width: 50px;
 }
