@@ -23,6 +23,12 @@
     width: 50px;
 }
 
+.product-row{
+    width: 100%;
+    float: top;
+    display: inline-block;
+}
+
 .item-title {
     text-shadow:
         /*-1px -1px #000,  

@@ -30,10 +30,18 @@
             $category->showCategoryBoxStart();
             if (count($products) > 0)
             {
+                $i = 0;
+                echo("<div class=\"product-row\">");
                 foreach($products as $product)
                 {
+                    if ($i%3 == 0 && $i != 0)
+                    {
+                        echo("</div><div class=\"product-row\">");
+                    }
                     $product->showProductBox();
+                    $i++;
                 }
+                echo("</div>");
             }
             else
             {

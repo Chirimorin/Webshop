@@ -21,7 +21,7 @@ Home <br /><br />
                     $i++;
                 }
             }
-            if (count($products) >= 3) //minstens dan 3 items gevonden
+            if (count($products) >= 3) //minstens 3 items gevonden
             {
                 echo("<button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=category&amp;catid=".$category->get('id')."'\">View all ".$category->get('name')."</button>");
             }
