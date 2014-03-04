@@ -1,11 +1,27 @@
 .thumb {
     float: left;
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 115px;
+    max-height: 115px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.product-image {
+    float: left;
+    max-width: 265px;
+    max-height: 265px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.product-container {
+    width: 100%;
+    display: inline-block;
 }
 
 .description {
-    float: right;
+    float: top;
+    display: inline;
 }
 
 .price {
@@ -16,6 +32,8 @@
 }
 
 .cart {
+    width: 100%;
+    text-align: right;
     float: right;
 }
 
