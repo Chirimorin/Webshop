@@ -57,13 +57,13 @@
                     </div>
                     <div class=\"panel-body\">
                     <div class=\"productContainer\">");
-            if(file_exists("images/".$this->get('image')))
+            if(file_exists("images/thumbs/".$this->get('image')))
             {
-                echo("<img class=\"thumb\" src=\"images/".$this->get('image')."\" alt=\"".$this->get('name')."\" />");
+                echo("<img class=\"thumb\" src=\"images/thumbs/".$this->get('image')."\" alt=\"".$this->get('name')."\" />");
             }
             else
             {
-                echo("<img class=\"thumb\" src=\"images/NoImage.jpg\" alt=\"".$this->get('name')."\" />");
+                echo("<img class=\"thumb\" src=\"images/thumbs/NoImage.jpg\" alt=\"".$this->get('name')."\" />");
             }
             echo("<div class=\"description\">".$this->get('description')."</div><br />&nbsp;
                     </div>
