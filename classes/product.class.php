@@ -59,16 +59,16 @@
                     <div class=\"productContainer\">");
             if(file_exists("images/".$this->get('image')))
             {
-                echo("<img class=\"thumb\" src=\"images/".$this->get('image')."\" alt=\"".$this->get('name')."\"></img>");
+                echo("<img class=\"thumb\" src=\"images/".$this->get('image')."\" alt=\"".$this->get('name')."\" />");
             }
             else
             {
-                echo("<img class=\"thumb\" src=\"images/NoImage.jpg\" alt=\"".$this->get('name')."\"></img>");
+                echo("<img class=\"thumb\" src=\"images/NoImage.jpg\" alt=\"".$this->get('name')."\" />");
             }
             echo("<div class=\"description\">".$this->get('description')."</div><br />&nbsp;
                     </div>
                     <div class=\"price\">Price: &euro;".$this->get('price')."</div><br />&nbsp;
-                    <div class=\"cart\"><input class=\"amount\" name=\"".$this->get('name')." amount\" type=\"number\" value=\"1\"></input>&nbsp;<button type=\"button\" class=\"btn btn-xs btn-default add-to-cart\">Add to cart</button></div>
+                    <div class=\"cart\"><input class=\"amount\" name=\"".$this->get('name')." amount\" type=\"number\" value=\"1\" />&nbsp;<button type=\"button\" class=\"btn btn-xs btn-default add-to-cart\">Add to cart</button></div>
                     </div>
                     </div>
                     </div>");
