@@ -7,7 +7,7 @@
         include_once("classes/product.class.php");
         
         $db = new DBClass();
-        $result = $db->runQuery("SELECT * FROM product");
+        $result = $db->runQuery("SELECT * FROM product ORDER BY name ASC");
         
         $products = array();        
         
@@ -53,7 +53,7 @@
         include_once("classes/product.class.php");
         
         $db = new DBClass();
-        $result = $db->runQuery("SELECT * FROM product WHERE categoryid = $catid");
+        $result = $db->runQuery("SELECT * FROM product WHERE categoryid = $catid ORDER BY name ASC");
         
         $products = array();        
         
