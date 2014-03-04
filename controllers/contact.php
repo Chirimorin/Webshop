@@ -1,3 +1,5 @@
+<a href="index.php">Home</a> > Contact <br /><br />
+
 <div class="page-header">
     <h1>Contact</h1>
 </div>

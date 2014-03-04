@@ -1,3 +1,5 @@
+<a href="index.php">Home</a> > Voorbeeld <br /><br />
+
 <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>Hello, world!</h1>

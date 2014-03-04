@@ -1,3 +1,5 @@
+Home <br /><br />
+
 <?php 
     include_once('database/dbfunctions.inc.php');
     

@@ -1,3 +1,5 @@
+<a href="index.php">Home</a> > Voortgang <br /><br />
+
 <div class="page-header">
     <h1>Huiswerkopdrachten</h1>
 </div>

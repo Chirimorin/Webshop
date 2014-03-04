@@ -1,6 +1,7 @@
 <?php 
     function error($msg)
     {
+        echo("<a href=\"index.php\">Home</a> > Categories <br /><br />");
         echo("<div class=\"alert alert-danger\"><strong>$msg</strong><br /></div>");
     }
     
@@ -20,6 +21,8 @@
         }
         else
         {
+            echo("<a href=\"index.php\">Home</a> > ".$category->get('name')." <br /><br />");
+            
             $products = get_products_by_category($category->get('id'));
             
             $category->showCategoryBoxStart();
