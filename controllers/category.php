@@ -25,6 +25,8 @@
             echo("<script type=\"text/javascript\">document.title = '".$title." - ".$category->get('name')."';</script>");
             echo("<a href=\"index.php\">Home</a> > ".$category->get('name')." <br /><br />");
             
+            include('includes/filter.inc.php');
+            
             $products = get_products_by_category($category->get('id'));
             
             $category->showCategoryBoxStart();

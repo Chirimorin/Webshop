@@ -50,7 +50,7 @@
         public function showProductBox()
         {
             echo("<div class=\"col-sm-4\">
-                    <div class=\"panel panel-info\">
+                    <div class=\"panel panel-info product-info\">
                     <div class=\"panel-heading\">
                     <h3 class=\"panel-title item-title ".$this->get('rarity')."\">".$this->get('name')."</h3>
                     </div>

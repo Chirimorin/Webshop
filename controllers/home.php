@@ -1,5 +1,8 @@
 Home <br /><br />
-
+<div class="jumbotron">
+    <h1>The Ingress Item Webshop</h1>
+    <p>Find all your ingress related items here!</p>
+</div>
 <?php 
     include_once('database/dbfunctions.inc.php');
     

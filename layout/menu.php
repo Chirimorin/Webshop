@@ -45,6 +45,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="<?php checkPage("home"); ?>"><a href="index.php">Home</a></li>
+            <li class="<?php checkPage("product"); ?>"><a href="index.php?page=product">Products</a></li>
             <li class="dropdown <?php checkPage("category"); ?>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
               <ul class="dropdown-menu">

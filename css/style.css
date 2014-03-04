@@ -6,6 +6,14 @@
     padding-bottom: 15px;
 }
 
+.searchbar {
+    z-index: 100;
+}
+
+.searchspace {
+    height: 100px;
+}
+
 .product-image {
     float: left;
     max-width: 265px;
