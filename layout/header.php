@@ -9,7 +9,27 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Webshop</title>
+    <title>
+        <?php
+            $title = "Ingress Shop";
+            echo($title." - ");
+            if (isset($_GET['page']))
+            {
+                if (file_exists("controllers/".$_GET['page'].".php"))
+                {
+                    echo($_GET['page']);
+                }
+                else
+                {
+                    echo("Page not found");
+                }
+            }
+            else
+            {
+                echo("Home");
+            }
+        ?>
+    </title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

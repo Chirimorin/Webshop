@@ -1,6 +1,7 @@
 <?php 
-    function error($msg)
+    function error($title, $msg)
     {
+        echo("<script type=\"text/javascript\">document.title = '".$title." - ".$msg."';</script>");
         echo("<a href=\"index.php\">Home</a> > Categories <br /><br />");
         echo("<div class=\"alert alert-danger\"><strong>$msg</strong><br /></div>");
     }
@@ -17,10 +18,11 @@
         
         if (null === $category->get('id'))
         {
-            error("Product category not found.");
+            error($title, "Product category not found.");
         }
         else
         {
+            echo("<script type=\"text/javascript\">document.title = '".$title." - ".$category->get('name')."';</script>");
             echo("<a href=\"index.php\">Home</a> > ".$category->get('name')." <br /><br />");
             
             $products = get_products_by_category($category->get('id'));
@@ -42,6 +44,6 @@
     }
     else //isset catid
     {
-        error("No category selected.");
+        error($title, "No category selected.");
     }
 ?>

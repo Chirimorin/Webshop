@@ -40,7 +40,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Webshop</a>
+          <a class="navbar-brand" href="index.php"><?php echo($title); ?></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
