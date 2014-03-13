@@ -66,9 +66,11 @@
             <li class="<?php checkPage("voortgang"); ?>"><a href="index.php?page=voortgang">Voortgang</a></li>
 			<li class="<?php checkPage("test"); ?>"><a href="index.php?page=test">Test</a></li>
             <li><a id="html5check" href="">Validate HTML5</a></li>
+			<li><a id="shoppingCartButton" href="#">Shopping Cart <b class="caret"></b></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
+	
     <div class="container theme-showcase" role="main">
+	<?php include("views/cart.php"); ?>

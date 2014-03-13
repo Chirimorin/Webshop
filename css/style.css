@@ -78,3 +78,11 @@
 .very_rare {
     color: #f78aef;
 }
+
+div#shoppingCart {
+	position: absolute;
+	height: 250px;
+	/*width: 350px;*/
+	background-color: red;
+	/*display: none;*/
+}
