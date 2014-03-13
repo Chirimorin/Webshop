@@ -5,6 +5,7 @@ Home <br /><br />
 </div>
 <?php 
     include_once('database/dbfunctions.inc.php');
+	include_once('includes/productFunctions.inc.php');
     
     $categories = get_all_categories();
 	
@@ -20,7 +21,7 @@ Home <br /><br />
             {
                 if ($i < 3) //laad alleen de eerste 3 items
                 {
-                    $product->showProductBox();
+                    showProductBox($product);
                     $i++;
                 }
             }

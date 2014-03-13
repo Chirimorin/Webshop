@@ -11,6 +11,7 @@
     {
         include_once('database/dbfunctions.inc.php');
         include_once('classes/category.class.php');
+		include_once('includes/productFunctions.inc.php');
         
         $catid = intval($_GET['catid']);
         
@@ -40,7 +41,7 @@
                     {
                         echo("</div><div class=\"product-row\">");
                     }
-                    $product->showProductBox();
+                    showProductBox($product);
                     $i++;
                 }
                 echo("</div>");

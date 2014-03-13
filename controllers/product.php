@@ -12,6 +12,7 @@
         include('includes/filter.inc.php');
         
         include_once('database/dbfunctions.inc.php');
+		include_once('includes/productFunctions.inc.php');
         
         $categories = get_all_categories();
         
@@ -24,7 +25,7 @@
                 $category->showCategoryBoxStart();
                 foreach($products as $product)
                 {
-                    $product->showProductBox();
+                    showProductBox($product);
                 }
                 $category->showCategoryBoxEnd();
             }
@@ -37,6 +38,7 @@
         include_once('database/dbfunctions.inc.php');
         include_once('classes/category.class.php');
         include_once('classes/product.class.php');
+		include_once('includes/productFunctions.inc.php');
         
         $productid = intval($_GET['productid']);
         
@@ -60,7 +62,7 @@
                 echo("<script type=\"text/javascript\">document.title = '".$title." - ".$product->get('name')."';</script>");
                 echo("<a href=\"index.php\">Home</a> > <a href=\"index.php?page=category&amp;catid=".$category->get('id')."\">".$category->get('name')."</a> > ".$product->get('name')." <br /><br />");
                 
-                $product->showProductDetail();
+                showProductDetail($product);
             }
         }
     }
