@@ -12,6 +12,7 @@
         include_once('database/dbfunctions.inc.php');
         include_once('classes/category.class.php');
 		include_once('includes/productFunctions.inc.php');
+        include_once('includes/categoryFunctions.inc.php');
         
         $catid = intval($_GET['catid']);
         
@@ -30,7 +31,7 @@
             
             $products = get_products_by_category($category->get('id'));
             
-            $category->showCategoryBoxStart();
+            showCategoryBoxStart($category);
             if (count($products) > 0)
             {
                 $i = 0;
@@ -50,7 +51,7 @@
             {
                 echo("<div class=\"alert alert-warning\"><strong>No products have been found in this category.</strong><br /></div>");
             }
-            $category->showCategoryBoxEnd();
+            showCategoryBoxEnd();
         }
     }
     else //isset catid

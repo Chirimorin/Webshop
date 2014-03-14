@@ -13,6 +13,7 @@
         
         include_once('database/dbfunctions.inc.php');
 		include_once('includes/productFunctions.inc.php');
+        include_once('includes/categoryFunctions.inc.php');
         
         $categories = get_all_categories();
         
@@ -22,12 +23,12 @@
             
             if (count($products) > 0)
             {
-                $category->showCategoryBoxStart();
+                showCategoryBoxStart($category);
                 foreach($products as $product)
                 {
                     showProductBox($product);
                 }
-                $category->showCategoryBoxEnd();
+                showCategoryBoxEnd();
             }
         }
     }
@@ -39,6 +40,7 @@
         include_once('classes/category.class.php');
         include_once('classes/product.class.php');
 		include_once('includes/productFunctions.inc.php');
+        include_once('includes/categoryFunctions.inc.php');
         
         $productid = intval($_GET['productid']);
         

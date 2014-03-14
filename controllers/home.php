@@ -6,6 +6,7 @@ Home <br /><br />
 <?php 
     include_once('database/dbfunctions.inc.php');
 	include_once('includes/productFunctions.inc.php');
+    include_once('includes/categoryFunctions.inc.php');
     
     $categories = get_all_categories();
 	
@@ -15,7 +16,7 @@ Home <br /><br />
         
         if (count($products) > 0)
         {
-            $category->showCategoryBoxStart();
+            showCategoryBoxStart($category);
             $i = 0;
             foreach($products as $product)
             {
@@ -29,7 +30,7 @@ Home <br /><br />
             {
                 echo("<button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=category&amp;catid=".$category->get('id')."'\">View all ".$category->get('name')."</button>");
             }
-            $category->showCategoryBoxEnd();
+            showCategoryBoxEnd();
         }
     }
 ?>
