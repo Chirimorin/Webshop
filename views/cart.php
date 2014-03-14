@@ -1,4 +1,4 @@
-<div id="shoppingCart" class="col-sm-3 col-sm-offset-4 fixed">
+<div id="shoppingCart" class="col-sm-offset-4 fixed">
 	<div class="panel panel-warning">
         <div class="panel-heading">
             <h3 class="panel-title">Shopping cart</h3>
