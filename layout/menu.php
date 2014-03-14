@@ -72,5 +72,7 @@
       </div>
     </div>
 	
-    <div class="container theme-showcase" role="main">
+    <div class="container theme-showcase fixed" role="main">
 	<?php include("views/cart.php"); ?>
+    
+    
