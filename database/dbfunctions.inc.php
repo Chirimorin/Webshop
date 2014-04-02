@@ -78,10 +78,13 @@
         
         $db = new DBClass();
         $password = hash('sha512', $password + "hosdhgfhou423h5oi42u592y5");
-        $result = $db->runQuery("CALL checkLogin("$username","$password")";
+        $result = $db->runQuery("CALL checkLogin(" . $username . "," . $password . ");");
         
         if($result !== FALSE){
-            $user.name = 
+            while($row = mysqli_fetch_assoc($result)){
+                $user[$i] = new User($row);
+                $i++;
+            }
         }        
         unset($db);
         
@@ -95,12 +98,15 @@
         
         $db = new DBClass();
         $password = hash('sha512', $password + "hosdhgfhou423h5oi42u592y5");
-        $result = $db->runQuery("CALL insertUser("$username","$password")";
+        $result = $db->runQuery("CALL insertUser(". $username. "," . $password . ");");
         $user = array();
         $i = 0;
 
         if($result !== FALSE){
-            $user.name = 
+            while($row = mysqli_fetch_assoc($result)){
+                $user[$i] = new User($row);
+                $i++;
+            }
         }        
         unset($db);
         
