@@ -28,7 +28,7 @@
             }
         }
         
-        echo("Your cart has been updated.");
+        echo("Your cart has been updated. <br />");
     }
     
     if (isset($_GET["method"]))
@@ -70,7 +70,6 @@
     }
     
     ksort($items);
-    $_SESSION["items"] = $items;
     
     //Generate view for the shopping cart.
     if (count($items) == 0)
@@ -106,6 +105,10 @@
                     ");
             }
             
+            else //Nonexisting product found in the cart, remove it. 
+            {
+                unset($items[$ID]);
+            }
         }
         
         //Add total and buttons
@@ -120,6 +123,8 @@
             <button type=\"button\" class=\"btn btn-s btn-default update-cart\">Update cart</button>
             ");
     }
+    
+    $_SESSION["items"] = $items;
 ?>
 
 <script type="text/javascript">registerCartButtons()</script>
