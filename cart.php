@@ -99,7 +99,7 @@
                     <a href=\"#\" class=\"list-group-item\">
                         <div class=\"cartItemTitle\">".$product->get('name')."</div>
                         <div class=\"cartAmount\"><input class=\"amount\" name=\"amounts[".$product->get('id')."]\" type=\"number\" value=\"".$amount."\"></div>
-                        <div class=\"cartPrice\">&euro;".number_format($productTotal)."</div>
+                        <div class=\"cartPrice\">&euro;".number_format($productTotal,2)."</div>
                         &nbsp;
                     </a>
                     ");
