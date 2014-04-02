@@ -12,6 +12,25 @@
     }
     
     //Modify the cart as needed
+    if (isset($_POST["amounts"]))
+    {
+        $amounts = $_POST["amounts"];
+        
+        foreach ($amounts as $ID => $amount)
+        {
+            if ($amount > 0)
+            {
+                $items[$ID] = $amount;
+            }
+            else
+            {
+                unset($items[$ID]);
+            }
+        }
+        
+        echo("Your cart has been updated.");
+    }
+    
     if (isset($_GET["method"]))
     {
         $method = $_GET["method"];
@@ -48,9 +67,10 @@
                 $items = array();
                 break;
         }
-        
-        $_SESSION["items"] = $items;
     }
+    
+    ksort($items);
+    $_SESSION["items"] = $items;
     
     //Generate view for the shopping cart.
     if (count($items) == 0)
@@ -59,10 +79,13 @@
     }
     else
     {
-        echo ("<div class=\"list-group\">");
+        //Make a list
+        echo ("<form id=\"cart-form\">
+                <div class=\"list-group\">");
         
         $totalPrice = 0;
         
+        //Add each item
         foreach ($items as $ID => $amount)
         {
             $product = new Product($ID);
@@ -74,24 +97,27 @@
                 $totalPrice += $productTotal;
                 
                 echo("
-                    <a href=\"index.php?page=product&productid=".$product->get('id')."\" class=\"list-group-item\">
+                    <a href=\"#\" class=\"list-group-item\">
                         <div class=\"cartItemTitle\">".$product->get('name')."</div>
-                        <div class=\"cartAmount\"><input class=\"amount\" name=\"amount\" type=\"number\" value=\"".$amount."\"></div>
+                        <div class=\"cartAmount\"><input class=\"amount\" name=\"amounts[".$product->get('id')."]\" type=\"number\" value=\"".$amount."\"></div>
                         <div class=\"cartPrice\">&euro;".$productTotal."</div>
                         &nbsp;
                     </a>
                     ");
             }
+            
         }
         
+        //Add total and buttons
         echo("
             <a href=\"#\" class=\"list-group-item active\">
                 <div class=\"cartItemTitle\">Total</div>
                 <div class=\"cartPrice\">&euro;".number_format($totalPrice, 2)."</div>
                 &nbsp;
             </a></div>
-            
+            </form>
             <button type=\"button\" class=\"btn btn-s btn-default empty-cart\">Empty cart</button>
+            <button type=\"button\" class=\"btn btn-s btn-default update-cart\">Update cart</button>
             ");
     }
 ?>

@@ -31,6 +31,12 @@ function registerCartButtons()
     $(".empty-cart").click(function(){
         $("#shoppingList").load("cart.php?method=empty");
     });
+    
+    $(".update-cart").click(function(){
+        $.post('cart.php', $("#cart-form").serialize(), function(data, textStatus, jqXHR) {
+            $("#shoppingList").html(data);
+        });
+    });
 }
 
 //logic
