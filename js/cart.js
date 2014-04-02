@@ -26,6 +26,13 @@ function toggleCart()
     }
 }
 
+function registerCartButtons()
+{
+    $(".empty-cart").click(function(){
+        $("#shoppingList").load("cart.php?method=empty");
+    });
+}
+
 //logic
 $(document).ready(function(){ 
     $("#shoppingList").load("cart.php");
@@ -46,3 +53,4 @@ $(".add-to-cart").click(function(){
     
     openCart();
 });
+

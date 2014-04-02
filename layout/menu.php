@@ -79,12 +79,10 @@
             <div class="panel-heading">
                 <h3 class="panel-title">Shopping cart</h3>
             </div>
-            <div class="panel-body">
-                <div id="shoppingList" class="list-group">
-                </div>
+            <div class="panel-body" id="shoppingList">
+                
             </div>
         </div>
     </div>
-    <?php //include("views/cart.php"); ?>
     
     
