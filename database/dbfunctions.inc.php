@@ -70,4 +70,40 @@
         
         return $products;
     }
+
+    function get_user($username, $password)
+    {
+        include_once("database/db.class.php");
+        include_once("classes/user.class.php");
+        
+        $db = new DBClass();
+        $password = hash('sha512', $password + "hosdhgfhou423h5oi42u592y5");
+        $result = $db->runQuery("CALL checkLogin("$username","$password")";
+        
+        if($result !== FALSE){
+            $user.name = 
+        }        
+        unset($db);
+        
+        return $user;
+    }
+
+    function insert_new_user($username, $password)
+    {
+        include_once("database/db.class.php");
+        include_once("classes/user.class.php");
+        
+        $db = new DBClass();
+        $password = hash('sha512', $password + "hosdhgfhou423h5oi42u592y5");
+        $result = $db->runQuery("CALL insertUser("$username","$password")";
+        $user = array();
+        $i = 0;
+
+        if($result !== FALSE){
+            $user.name = 
+        }        
+        unset($db);
+        
+        return $user;
+    }
 ?>
