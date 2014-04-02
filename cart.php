@@ -78,7 +78,7 @@
     }
     else
     {
-        //Make a list
+        //Make the form and a list
         echo ("<form id=\"cart-form\">
                 <div class=\"list-group\">");
         
@@ -91,7 +91,7 @@
             
             if ($product->get('id') == $ID)
             {
-                $productTotal = number_format($product->get('price') * $amount, 2);
+                $productTotal = $product->get('price') * $amount;
                 
                 $totalPrice += $productTotal;
                 
@@ -99,7 +99,7 @@
                     <a href=\"#\" class=\"list-group-item\">
                         <div class=\"cartItemTitle\">".$product->get('name')."</div>
                         <div class=\"cartAmount\"><input class=\"amount\" name=\"amounts[".$product->get('id')."]\" type=\"number\" value=\"".$amount."\"></div>
-                        <div class=\"cartPrice\">&euro;".$productTotal."</div>
+                        <div class=\"cartPrice\">&euro;".number_format($productTotal)."</div>
                         &nbsp;
                     </a>
                     ");
