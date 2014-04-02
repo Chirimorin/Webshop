@@ -1,6 +1,4 @@
 <?php 
-    session_start();
-    
     include_once("classes/product.class.php");
     
     $items = array();
@@ -28,49 +26,7 @@
             }
         }
         
-        echo("<div class=\"alert alert-info alert-dismissable\">Your cart has been updated.<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button></div>");
-    }
-    
-    if (isset($_GET["method"]))
-    {
-        $method = $_GET["method"];
-        
-        switch ($method)
-        {
-            case "add": //An item gets added
-                if (isset($_GET["itemID"]) && isset($_GET["amount"]))
-                {
-                    $itemID = $_GET["itemID"];
-                    $amount = $_GET["amount"];
-                    
-                    if ($amount < 0)
-                    {
-                        $amount = 0;
-                    }
-                    
-                    if (isset($items[$itemID]))
-                    {
-                        $items[$itemID] += $amount;
-                    }
-                    else
-                    {
-                        $items[$itemID] = $amount;
-                    }
-                    
-                    if ($items[$itemID] <= 0)
-                    {
-                        unset($items[$itemID]);
-                    }
-                    else
-                    {
-                        echo("<div class=\"alert alert-success alert-dismissable\">The item has been added to your cart.<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button></div>");
-                    }
-                }
-                break;
-            case "empty": //The cart is emptied
-                $items = array();
-                break;
-        }
+        echo("<div class=\"alert alert-info alert-dismissable\">Your order has been updated.<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button></div>");
     }
     
     ksort($items);
@@ -78,13 +34,12 @@
     //Generate view for the shopping cart.
     if (count($items) == 0)
     {
-        echo("<div class=\"alert alert-danger\">Your shopping cart is empty.</div>");
+        echo("<div class=\"alert alert-warning\">You currently have no items in your shopping cart.</div>");
     }
     else
     {
         //Make the form and a list
-        echo ("<form id=\"cart-form\">
-                <div class=\"list-group\">");
+        echo ("<form action=\"index.php?page=order\" method=\"post\" id=\"order-form\"><div class=\"list-group\">");
         
         $totalPrice = 0;
         
@@ -122,14 +77,10 @@
                 <div class=\"cartPrice\">&euro;".number_format($totalPrice, 2)."</div>
                 &nbsp;
             </a></div>
+            <input type=\"submit\" class=\"btn btn-s btn-default order-form\" value=\"Update amounts\" />
             </form>
-            <button type=\"button\" class=\"btn btn-s btn-default empty-cart\">Empty cart</button>
-            <button type=\"button\" class=\"btn btn-s btn-default update-cart\">Update cart</button>
-            <a class=\"btn btn-s btn-success cart-order\" href=\"index.php?page=order\">Place order</a>
-            ");
+            <a class=\"btn btn-s btn-success cart-order\" href=\"index.php?page=order\">Place order</a>");
     }
     
     $_SESSION["items"] = $items;
 ?>
-
-<script type="text/javascript">registerCartButtons()</script>

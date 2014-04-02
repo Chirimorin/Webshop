@@ -22,6 +22,7 @@ function toggleCart()
     }
     else
     {
+        $("#shoppingList").load("cart.php");
         openCart();
     }
 }
