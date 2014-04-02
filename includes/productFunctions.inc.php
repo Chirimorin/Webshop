@@ -22,9 +22,7 @@ function showProductBox($product)
 				</div>
 				<div class=\"price\">Price: &euro;".$product->get('price')."</div>
 				<div class=\"cart\">
-                    <input class=\"itemName\" name=\"itemName\" type=\"hidden\" value=\"".$product->get('name')."\"/>
                     <input class=\"itemID\" name=\"itemID\" type=\"hidden\" value=\"".$product->get('id')."\"/>
-                    <input class=\"price\" name=\"price\" type=\"hidden\" value=\"".$product->get('price')."\"/>
                     <input class=\"amount\" name=\"amount\" type=\"number\" value=\"1\" />&nbsp;
                     <button type=\"button\" class=\"btn btn-xs btn-default add-to-cart\">Add to cart</button>
                 </div>
@@ -59,9 +57,7 @@ function showProductDetail($product)
 				</div>
 				<div class=\"price\">Price: &euro;".$product->get('price')."</div>
 				<div class=\"cart\">
-                    <input class=\"itemName\" name=\"itemName\" type=\"hidden\" value=\"".$product->get('name')."\"/>
                     <input class=\"itemID\" name=\"itemID\" type=\"hidden\" value=\"".$product->get('id')."\"/>
-                    <input class=\"price\" name=\"price\" type=\"hidden\" value=\"".$product->get('price')."\"/>
                     <input class=\"amount\" name=\"amount\" type=\"number\" value=\"1\" />&nbsp;
                     <button type=\"button\" class=\"btn btn-xs btn-default add-to-cart\">Add to cart</button>
                 </div>

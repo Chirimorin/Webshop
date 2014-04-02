@@ -73,6 +73,18 @@
     </div>
 	
     <div class="container theme-showcase fixed" role="main">
-	<?php include("views/cart.php"); ?>
+	
+    <div id="shoppingCart" class="col-sm-offset-4 fixed">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">Shopping cart</h3>
+            </div>
+            <div class="panel-body">
+                <div id="shoppingList" class="list-group">
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php //include("views/cart.php"); ?>
     
     

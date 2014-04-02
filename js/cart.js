@@ -28,6 +28,7 @@ function toggleCart()
 
 //logic
 $(document).ready(function(){ 
+    $("#shoppingList").load("cart.php");
 	console.log("Cart loaded")
 });
 
@@ -38,16 +39,10 @@ $("#shoppingCartButton").click(function(){
 });
 
 $(".add-to-cart").click(function(){
-    var itemName = $(this).parent().find($(".itemName")).val();
     var itemID = $(this).parent().find($(".itemID")).val();
-    var price = $(this).parent().find($(".price")).val();
     var amount = $(this).parent().find($(".amount")).val();
     
-    $("#shoppingList").prepend("<a href=\"index.php?page=product&productid="+itemID+"\" class=\"list-group-item\">\
-                                <div class=\"cartItemTitle\">"+itemName+"</div>\
-                                <div class=\"cartPrice\">&euro;"+price+"</div>\
-                                &nbsp;\
-                                </a>");
+    $("#shoppingList").load("cart.php?method=add&itemID="+itemID+"&amount="+amount);
     
-    console.log("Item: "+itemName+" ("+itemID+"), amount: "+amount+", price: "+price);
+    openCart();
 });
