@@ -80,13 +80,16 @@ class Login
 
                     // using PHP 5.5's password_verify() function to check if the provided password fits
                     // the hash of that user's password
-                    $hashed_password = hash('sha512', $_POST['user_password'] + "hosdhgfhou423h5oi42u592y5");
-                    if (password_verify( $hashed_password, $result_row->password)) {
+                    $hashed_password = hash('sha256', $_POST['user_password'] . "hosdhgfhou423h5oi42u592y5");
+                    $dbpass = $result_row->password;
+
+                    if ($hashed_password===$dbpass) { 
 
                         // write user data into PHP SESSION (a file on your server)
                         $_SESSION['name'] = $result_row->username;
                         $_SESSION['accesslevel'] = $result_row->accesslevel;
                         $_SESSION['user_login_status'] = 1;
+                        $this->messages[] = $_SESSION['name'] . " succesfully logged in! Accesslevel is: " . $_SESSION['accesslevel'];
 
                     } else {
                         $this->errors[] = "Wrong password. Try again.";

@@ -75,9 +75,9 @@ class Registration
                 $user_password = $_POST['user_password_new'];
                 
 
-                $user_password_hash = hash('sha512', $user_password + "hosdhgfhou423h5oi42u592y5");
-                ChromePhp::log($user_password_hash);
-                // check if user or email address already exists
+                $user_password_hash = hash('sha256', $user_password . "hosdhgfhou423h5oi42u592y5");
+                $this->errors[] = $user_name . " , " . $user_password_hash;
+                // check if user already exists
                 $sql = "SELECT * FROM user WHERE username = '" . $user_name . "';";
                 $query_check_user_name = $this->db_connection->query($sql);
 
@@ -93,7 +93,7 @@ class Registration
                     if ($query_new_user_insert) {
                         $this->messages[] = "Your account has been created successfully. You can now log in.";
                     } else {
-                        $this->errors[] = "Sorry, your registration failed. Please go back and try again.";
+                        $this->errors[] = "Sorry, your registration failed. Please go back and try again." . $query_new_user_insert. "";
                     }
                 }
             } else {

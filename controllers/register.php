@@ -1,4 +1,9 @@
 <?php
+require_once("database/dbconfig.php");
+require_once("classes/registration.class.php");
+
+$registration = new Registration();
+
 // show potential errors / feedback (from registration object)
 if (isset($registration)) {
     if ($registration->errors) {
@@ -13,7 +18,12 @@ if (isset($registration)) {
     }
 }
 ?>
+<div class="panel panel-primary">
 
+<div class="panel panel-heading">
+Registreren
+</div>
+<div class="panel panel-body">
 <!-- register form -->
 <form method="post" action="index.php?page=register" name="registerform">
 
@@ -33,3 +43,5 @@ if (isset($registration)) {
 
 <!-- backlink -->
 <a href="index.php?page=login">Back to Login Page</a>
+</div>
+</div>
