@@ -76,7 +76,7 @@ class Registration
                 
 
                 $user_password_hash = hash('sha256', $user_password . "hosdhgfhou423h5oi42u592y5");
-                $this->errors[] = $user_name . " , " . $user_password_hash;
+               
                 // check if user already exists
                 $sql = "SELECT * FROM user WHERE username = '" . $user_name . "';";
                 $query_check_user_name = $this->db_connection->query($sql);

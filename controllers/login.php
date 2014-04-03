@@ -5,7 +5,12 @@ require_once("classes/login.class.php");
 
 
     $login = new Login();
-
+?>
+<div class="panel panel-primary">
+<!-- login form box -->
+<div class="panel panel-heading">
+Inloggen&nbsp;
+<?php
 // show potential errors / feedback (from login object)
 if (isset($login)) {
     if ($login->errors) {
@@ -20,10 +25,7 @@ if (isset($login)) {
     }
 }
 ?>
-<div class="panel panel-primary">
-<!-- login form box -->
-<div class="panel panel-heading">
-Inloggen
+
 </div>
 <div class="panel panel-body">
 <form method="post" action="index.php?page=login" name="loginform">
@@ -34,11 +36,15 @@ Inloggen
     <label for="login_input_password">Password</label>
     <input id="login_input_password" class="login_input" type="password" name="user_password" autocomplete="off" required />
     <br/>
-    <input type="submit"  name="login" value="Log in" />
+    <button type="submit" class="btn btn-lg btn-default" name="login" value="Log in">Log in</button>
+    <button type="button" class="btn btn-lg btn-default" onclick="window.location.href='index.php?page=register'">Register</button>
+    
+    
+</div>
 
 </form>
 
-<a href="index.php?page=register">Register new account</a>
+
 </div>
 </div>
 

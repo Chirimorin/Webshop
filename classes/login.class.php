@@ -89,7 +89,7 @@ class Login
                         $_SESSION['name'] = $result_row->username;
                         $_SESSION['accesslevel'] = $result_row->accesslevel;
                         $_SESSION['user_login_status'] = 1;
-                        $this->messages[] = $_SESSION['name'] . " succesfully logged in! Accesslevel is: " . $_SESSION['accesslevel'];
+                        $this->messages[] = "You logged in succesfully!";
 
                     } else {
                         $this->errors[] = "Wrong password. Try again.";
