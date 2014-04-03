@@ -77,8 +77,9 @@
         include_once("classes/user.class.php");
         
         $db = new DBClass();
+        $clearUsername = $db->clearText($username);
         $password = hash('sha512', $password + "hosdhgfhou423h5oi42u592y5");
-        $result = $db->runQuery("CALL checkLogin(" . $username . "," . $password . ");");
+        $result = $db->runQuery("CALL checkLogin(" . $clearUsername . "," . $password . ");");
         
         if($result !== FALSE){
             while($row = mysqli_fetch_assoc($result)){
@@ -97,8 +98,9 @@
         include_once("classes/user.class.php");
         
         $db = new DBClass();
+        $clearUsername = $db->clearText($username);
         $password = hash('sha512', $password + "hosdhgfhou423h5oi42u592y5");
-        $result = $db->runQuery("CALL insertUser(". $username. "," . $password . ");");
+        $result = $db->runQuery("CALL insertUser(". $clearUsername. "," . $password . ");");
         $user = array();
         $i = 0;
 
@@ -111,5 +113,14 @@
         unset($db);
         
         return $user;
+    }
+
+    function user_existing($username)
+    {
+        include_once("database/db.class.php");
+        $clearUsername = $db->clearText($username);
+        $db = new DBClass();
+        $result = $db->runQuery("SELECT username, password FROM user WHERE username = '" . $clearUsername . "';");
+        return $result;
     }
 ?>

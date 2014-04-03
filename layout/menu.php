@@ -62,6 +62,7 @@
         </li>
         <li class="<?php checkPage("about"); ?>"><a href="index.php?page=about">About</a></li>
         <li class="<?php checkPage("contact"); ?>"><a href="index.php?page=contact">Contact</a></li>
+        <li class="<?php checkPage("login"); ?>"><a href="index.php?page=login">Login</a></li>
         <li><a id="html5check" href="">Validate HTML5</a></li>
         <li><a id="shoppingCartButton" href="#">Shopping Cart <b class="caret"></b></a></li>
       </ul>
