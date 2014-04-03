@@ -1,5 +1,6 @@
 <?php
 	session_start();
+
 	include("layout/header.php");
 	include("layout/menu.php");
 	require_once("libraries/password_compatibility_library.php");

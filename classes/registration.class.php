@@ -58,6 +58,7 @@ class Registration
         ) {
             // create a database connection
             $this->db_connection = new mysqli(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+            
 
             // change character set to utf8 and check it
             if (!$this->db_connection->set_charset("utf8")) {
@@ -72,9 +73,10 @@ class Registration
                
 
                 $user_password = $_POST['user_password_new'];
+                
 
                 $user_password_hash = hash('sha512', $user_password + "hosdhgfhou423h5oi42u592y5");
-
+                ChromePhp::log($user_password_hash);
                 // check if user or email address already exists
                 $sql = "SELECT * FROM user WHERE username = '" . $user_name . "';";
                 $query_check_user_name = $this->db_connection->query($sql);
