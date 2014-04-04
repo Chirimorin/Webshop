@@ -1,34 +1,13 @@
 <?php
 
-/**
- * Class login
- * handles the user's login and logout process
- */
 class Login
 {
-    /**
-     * @var object The database connection
-     */
     private $db_connection = null;
-    /**
-     * @var array Collection of error messages
-     */
     public $errors = array();
-    /**
-     * @var array Collection of success / neutral messages
-     */
     public $messages = array();
 
-    /**
-     * the function "__construct()" automatically starts whenever an object of this class is created,
-     * you know, when you do "$login = new Login();"
-     */
     public function __construct()
     {
-        // create/read session, absolutely necessary
-        //session_start();
-
-        // check the possible login actions:
         // if user tried to log out (happen when user clicks logout button)
         if (isset($_GET["logout"])) {
             $this->doLogout();
@@ -44,7 +23,6 @@ class Login
      */
     private function dologinWithPostData()
     {
-        // check login form contents
         if (empty($_POST['user_name'])) {
             $this->errors[] = "Username field was empty.";
         } elseif (empty($_POST['user_password'])) {
@@ -59,33 +37,22 @@ class Login
                 $this->errors[] = $this->db_connection->error;
             }
 
-            // if no connection errors (= working database connection)
             if (!$this->db_connection->connect_errno) {
 
-                // escape the POST stuff
                 $user_name = $this->db_connection->real_escape_string($_POST['user_name']);
 
-                // database query, getting all the info of the selected user (allows login via email address in the
-                // username field)
                 $sql = "SELECT username, password, accesslevel
                         FROM user
                         WHERE username = '" . $user_name . "';";
                 $result_of_login_check = $this->db_connection->query($sql);
 
-                // if this user exists
                 if ($result_of_login_check->num_rows == 1) {
-
-                    // get result row (as an object)
                     $result_row = $result_of_login_check->fetch_object();
 
-                    // using PHP 5.5's password_verify() function to check if the provided password fits
-                    // the hash of that user's password
                     $hashed_password = hash('sha256', $_POST['user_password'] . "hosdhgfhou423h5oi42u592y5");
                     $dbpass = $result_row->password;
 
                     if ($hashed_password===$dbpass) { 
-
-                        // write user data into PHP SESSION (a file on your server)
                         $_SESSION['name'] = $result_row->username;
                         $_SESSION['accesslevel'] = $result_row->accesslevel;
                         $_SESSION['user_login_status'] = 1;
@@ -108,12 +75,13 @@ class Login
      */
     public function doLogout()
     {
-        // delete the session of the user
-        $_SESSION = array();
-        session_destroy();
-        // return a little feeedback message
-        $this->messages[] = "You have been logged out.";
-
+        if (isUserLoggedIn())
+        {
+            $this->messages[] = "You have been logged out.";
+        }
+        unset($_SESSION['name'],
+                $_SESSION['accesslevel'],
+                $_SESSION['user_login_status']);
     }
 
     /**
@@ -125,7 +93,7 @@ class Login
         if (isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] == 1) {
             return true;
         }
-        // default return
+        
         return false;
     }
 }
