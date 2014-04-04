@@ -7,7 +7,7 @@
         include_once("classes/product.class.php");
         
         $db = new DBClass();
-        $result = $db->runQuery("SELECT * FROM product ORDER BY name ASC");
+        $result = $db->runQuery("CALL get_all_products();");
         
         $products = array();        
         
@@ -30,7 +30,7 @@
         include_once("classes/category.class.php");
         
         $db = new DBClass();
-        $result = $db->runQuery("SELECT * FROM category");
+        $result = $db->runQuery("CALL get_all_categories();");
         
         $categories = array();        
         
@@ -53,7 +53,7 @@
         include_once("classes/product.class.php");
         
         $db = new DBClass();
-        $result = $db->runQuery("SELECT * FROM product WHERE categoryid = $catid ORDER BY name ASC");
+        $result = $db->runQuery("CALL get_products_by_category('".$catid."');");
         
         $products = array();        
         
@@ -71,47 +71,13 @@
         return $products;
     }
 
-
-
-    function insert_new_user($username, $password)
-    {
-        include_once("database/db.class.php");
-        include_once("classes/user.class.php");
-        
-        $db = new DBClass();
-        $clearUsername = $db->clearText($username);
-        $password = hash('sha512', $password + "hosdhgfhou423h5oi42u592y5");
-        $result = $db->runQuery("CALL insertUser(". $clearUsername. "," . $password . ");");
-        $user = array();
-        $i = 0;
-
-        if($result !== FALSE){
-            while($row = mysqli_fetch_assoc($result)){
-                $user[$i] = new User($row);
-                $i++;
-            }
-        }        
-        unset($db);
-        
-        return $user;
-    }
-
-    function user_existing($username)
-    {
-        include_once("database/db.class.php");
-        $clearUsername = $db->clearText($username);
-        $db = new DBClass();
-        $result = $db->runQuery("SELECT username, password FROM user WHERE username = '" . $clearUsername . "';");
-        return $result;
-    }
-
     function get_all_users()
     {
         include_once("database/db.class.php");
         include_once("classes/user.class.php");
         
         $db = new DBClass();
-        $result = $db->runQuery("SELECT username, accesslevel FROM user;");
+        $result = $db->runQuery("CALL get_all_users();");
         $user = array();
         $i = 0;
         if($result !== FALSE){
@@ -132,7 +98,7 @@
         $clearUsername = $db->clearText($username);
         $intaccesslevel = intval($accesslevel);
         if($accesslevel !== 0){
-            $result = $db->runQuery("UPDATE user SET accesslevel=". $intaccesslevel." WHERE username = '".$clearUsername."' ;");
+            $result = $db->runQuery("CALL edit_user('".$clearUsername."' , '".$accesslevel."')");
             if($result){
                 echo "Successfully updated ". $username . "&#39;s accesslevel to ".$intaccesslevel.".<br>";
             }
@@ -148,7 +114,7 @@
         $clearName = $db->clearText($name);
         $clearDescription = $db->clearText($description);
         if($id !== 0){
-            $result = $db->runQuery("UPDATE category SET name='". $clearName."' , description='".$clearDescription."'  WHERE id = '".$id."' ;");
+            $result = $db->runQuery("CALL edit_category('". $id."' , '". $clearText."' ,'".$clearDescription."';");
             if($result){
                 echo "Successfully updated category ". $name . ".<br>";
             }
@@ -162,7 +128,7 @@
         $db = new DBClass();
         $clearName = $db->clearText($name);
         $clearDescription = $db->clearText($description);
-        $result = $db->runQuery("INSERT INTO category (name, description) VALUES ('". $clearName."' , '".$clearDescription."');");
+        $result = $db->runQuery("CALL add_category('".$clearName."','".$clearDescription."');");
         if($result){
             echo "Successfully inserted category ". $name . ".<br>";
         }
@@ -174,7 +140,7 @@
         function remove_Category($id){
         include_once("database/db.class.php");
         $db = new DBClass();
-        $result = $db->runQuery("DELETE FROM category WHERE id = '".$id."';");
+        $result = $db->runQuery("CALL remove_category('".$id."');");
         if($result){
             echo "Successfully removed category<br>";
         }
@@ -187,7 +153,7 @@
         include_once("database/db.class.php");
 
         $db = new DBClass();
-        $result = $db->runQuery("SELECT distinct(rarity) FROM product;");
+        $result = $db->runQuery("CALL get_rarities();");
         return $result;
     }
 
@@ -198,7 +164,7 @@
         $clearDescription = $db->clearText($description);
         $clearLongDescription = $db->clearText($longdescription);
         if($id !== 0){
-            $result = $db->runQuery("UPDATE product SET name='". $clearName."' , description='".$clearDescription."' , longdescription='".$clearLongDescription."' , image='".$image."', categoryid='".$categoryid."' , price='".$price."' , rarity='".$rarity."' WHERE id = '".$id."' ;");
+            $result = $db->runQuery("CALL edit_product('".$id."' ,'". $clearName."' , '".$clearDescription."' , '".$clearLongDescription."' , '".$image."', '".$categoryid."' , '".$price."' , '".$rarity."');");
             if($result){
                 echo "Successfully updated product ". $name . ".<br>";
             }
@@ -213,7 +179,7 @@
         $clearName = $db->clearText($name);
         $clearDescription = $db->clearText($description);
         $clearLongDescription = $db->clearText($longdescription);
-        $result = $db->runQuery("INSERT INTO product (name, description, longdescription, image, categoryid, price, rarity) VALUES ('". $clearName."' , '".$clearDescription."', '".$clearLongDescription."', '".$image."', '".$categoryid."', '".$price."', '".$rarity."');");
+        $result = $db->runQuery("CALL add_product('". $clearName."' , '".$clearDescription."', '".$clearLongDescription."', '".$image."', '".$categoryid."', '".$price."', '".$rarity."');");
         if($result){
             echo "Successfully inserted product ". $name . ".<br>";
         }
@@ -225,7 +191,7 @@
         function remove_Product($id){
         include_once("database/db.class.php");
         $db = new DBClass();
-        $result = $db->runQuery("DELETE FROM product WHERE id = '".$id."';");
+        $result = $db->runQuery("CALL remove_product('".$id."');");
         if($result){
             echo "Successfully removed product<br>";
         }

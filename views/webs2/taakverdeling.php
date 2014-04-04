@@ -36,7 +36,7 @@
         <tr>
             <td>Database met zinnige entries</td>
             <td>Jeroen</td>
-            <td>Bouw en ontwerp database door jeroen, vullen van de database is samen gebeurt</td>
+            <td>Bouw en ontwerp database door Jeroen, vullen van de database is samen gebeurt</td>
         </tr>
         <tr>
             <td>Classes (Category & product)</td>

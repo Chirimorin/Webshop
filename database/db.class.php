@@ -70,39 +70,6 @@ class DBClass {
 		}
 	return $count;
 	}
-	
-	public function get_multi($query)
-    {
-        //Overwrite the $row var to null
-        $row = null;
-        
-        $results = $this->link->query( $query );
-        if( $this->link->error )
-        {
-            $this->log_db_errors( $this->link->error, $query );
-            return false;
-        }
-        else
-        {
-            while($this->link->more_results())
-            {
-                if($this->link->next_result()){
-                  if($l_result = $this->link->store_result()){
-                          $l_result->free();
-                  }
-                }
-            }
-
-            $row = array();
-            while( $r = $results->fetch_assoc() )
-            {
-                $row[] = $r;
-            }
-            return $row; 
-        }
-       
-    }
-
 }
  
 ?>
