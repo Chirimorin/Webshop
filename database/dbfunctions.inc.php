@@ -188,7 +188,7 @@
         unset($db);
     }
 
-        function remove_Product($id){
+    function remove_Product($id){
         include_once("database/db.class.php");
         $db = new DBClass();
         $result = $db->runQuery("CALL remove_product('".$id."');");
@@ -200,4 +200,105 @@
         unset($db);
     }
 
+    function get_all_orders()
+    {
+        include_once("database/db.class.php");
+        include_once("classes/product.class.php");
+        
+        $db = new DBClass();
+        $result = $db->runQuery("CALL get_all_orders();");
+        
+        $orders = array();        
+        
+        $i = 0;
+
+        if ($result !== FALSE)
+        {
+            while($row = mysqli_fetch_assoc($result)){
+                $orders[$i] = $row;
+                $i++;
+            }
+        }
+        unset($db);
+        
+        return $orders;
+    }
+    function get_address_by_id($id)
+    {
+        include_once("database/db.class.php");
+        $db = new DBClass();
+        $id = intval($id);
+        $result = $db->runQuery("CALL get_address_by_id('".$id."');");
+        $addresses = array();
+        $i=0;
+        if ($result !== FALSE)
+        {
+            while($row = mysqli_fetch_assoc($result)){
+                $addresses[$i] = $row;
+                $i++;
+            }
+        }
+        unset($db);
+        return $addresses;
+    }
+
+    function get_items_by_orderid($id)
+    {
+        include_once("database/db.class.php");
+
+        $db = new DBClass();
+        $id = intval($id);
+        $result = $db->runQuery("CALL get_items_by_orderid('".$id."');");
+        $orderproducts = array();
+        $i = 0;
+        if ($result !== FALSE)
+        {
+        
+            while($row = mysqli_fetch_assoc($result)){
+                $orderproducts[$i] = $row;
+                $i++;
+            }
+        }
+        unset($db);
+        return $orderproducts;
+
+    }
+        function get_order_by_id($id)
+    {
+        include_once("database/db.class.php");
+
+        $db = new DBClass();
+        $id = intval($id);
+        $result = $db->runQuery("CALL get_order_by_id('".$id."');");
+        $orders = array();
+        $i = 0;
+
+        if ($result !== FALSE)
+        {
+            while($row = mysqli_fetch_assoc($result)){
+                $orders[$i] = $row;
+                $i++;
+            }
+        }
+        unset($db);
+        return $orders;
+}
+
+        function edit_order_Post_Data($id, $status){
+            include_once("database/db.class.php");
+            $db = new DBClass();
+            $clearName = $db->clearText($name);
+            $clearDescription = $db->clearText($description);
+            $clearLongDescription = $db->clearText($longdescription);
+            if($id !== 0){
+                $result = $db->runQuery("CALL edit_order('".$id."' ,'". $status."');");
+                if($result){
+                    echo "Successfully updated order ". $name . ".<br>";
+                }
+            }
+            
+            unset($db);
+
+        }
+      
 ?>
