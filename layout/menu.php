@@ -76,7 +76,7 @@
         <li class="<?php checkPage("contact"); ?>"><a href="index.php?page=contact">Contact</a></li>
         <li class="<?php checkPage('login'); ?>"><a href="index.php?page=login"><?php echo(login::isUserLoggedIn() ? 'Logout' : 'Login'); ?></a></li>
         <!-- TODO TOGGLE VISABILITY-->
-        <li class="dropdown <?php checkPage('CMS')?>">
+        <li class="dropdown <?php checkPage('cms')?>">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li class="<?php checkCms(1)?>"><a href="index.php?page=cms&amp;cmsid=1">Users</a></li>
