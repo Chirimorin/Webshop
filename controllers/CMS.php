@@ -10,12 +10,12 @@
             }
             else
             {
-                echo "<div class=\"alert alert-danger\">Invalid page specified</div>";
+                include("views/CMS/home.php");
             }
         }
         else
         {
-            echo "<div class=\"alert alert-danger\">Invalid page specified</div>";
+            include("views/CMS/home.php");
         }
     }
     else{
