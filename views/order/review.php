@@ -4,26 +4,25 @@
     <h1>Review your order</h1>
 </div>
 
-<h1><small>Products</small></h1>
 <?php
-    if (isset($_POST['name'], 
-                $_POST['street'], 
-                $_POST['no'], 
-                $_POST['zipcode'], 
-                $_POST['country'])) //Failsafe: did someone edit the DOM? 
+    if ($_POST['name'] != "" &&
+        $_POST['street'] != "" &&
+        $_POST['no'] != "" &&
+        $_POST['zipcode'] != "" &&
+        $_POST['country'] != "") //Failsafe: did someone edit the DOM? 
     {
         $address=array();
-        $address['name']    = $_POST['name'];
-        $address['street']  = $_POST['street'];
-        $address['no']      = $_POST['no'];
-        $address['zipcode'] = $_POST['zipcode'];
-        $address['country'] = $_POST['country'];
-        if (isset($_POST['addition']))
-        {
-            $address['addition'] = $_POST['addition'];
-        }
+        $address['name']        = $_POST['name'];
+        $address['street']      = $_POST['street'];
+        $address['no']          = $_POST['no'];
+        $address['zipcode']     = $_POST['zipcode'];
+        $address['country']     = $_POST['country'];
+        $address['addition']    = $_POST['addition'];
+        
         
         $_SESSION['address'] = $address;
+        
+        echo("<h1><small>Products</small></h1>");
         
         $items = array();
         
@@ -83,7 +82,7 @@
             echo("<h1><small>Shipping address</small></h1>");
             
             echo($address['name']."<br />");
-            echo($address['street']." ".$address['no'].(isset($address['addition']) ? $address['addition'] : "")."<br />");
+            echo($address['street']." ".$address['no'].$address['addition']."<br />");
             echo($address['zipcode']."<br />");
             echo($address['country']."<br />");
             
