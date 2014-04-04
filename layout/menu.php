@@ -74,7 +74,28 @@
         </li>
         <li class="<?php checkPage("about"); ?>"><a href="index.php?page=about">About</a></li>
         <li class="<?php checkPage("contact"); ?>"><a href="index.php?page=contact">Contact</a></li>
-        <li class="<?php checkPage('login'); ?>"><a href="index.php?<?php echo(login::isUserLoggedIn() ? 'logout=true">Logout' : 'page=login'.(isset($_GET['page']) ? '&amp;returnTo='.$_GET['page'] : '').'">Login'); ?></a></li>
+        <li class="<?php checkPage('login'); ?>"><a href="index.php?<?php
+            if (login::isUserLoggedIn())
+            {
+                echo('logout=true">Logout');
+            }
+            else
+            {
+                echo('page=login');
+                if (isset($_GET['page']))
+                {
+                    echo ('&amp;returnTo='.$_GET['page']);
+                    foreach ($_GET as $key => $value)
+                    {
+                        if ($key != "page" && $key != "returnTo")
+                        {
+                            echo('&amp;'.$key.'='.$value);
+                        }
+                    }
+                }
+                echo('">Login');
+            }
+        ?></a></li>
         <!-- TODO TOGGLE VISABILITY-->
         <li class="dropdown <?php checkPage('cms')?>">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS<b class="caret"></b></a>

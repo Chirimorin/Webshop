@@ -4,7 +4,16 @@
     <h1>Log In</h1>
 </div>
 
-<form role="form" method="post" action="index.php?page=<?php echo(isset($_GET['returnTo']) ? $_GET['returnTo'] : 'home'); ?>" name="loginform">
+<form role="form" method="post" action="index.php?page=<?php
+    echo(isset($_GET['returnTo']) ? $_GET['returnTo'] : 'home'); 
+    foreach ($_GET as $key => $value)
+    {
+        if ($key != "page" && $key != "returnTo")
+        {
+            echo('&amp;'.$key.'='.$value);
+        }
+    }
+?>" name="loginform">
     <div class="form-group">
         <label for="login_input_username">Username</label>
         <input id="login_input_username" placeholder="Enter your username here"class="form-control" type="text" name="user_name" required />

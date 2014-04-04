@@ -88,7 +88,7 @@
         }
         else
         {
-            echo("<a class=\"btn btn-s btn-success cart-order\" href=\"index.php?page=login&amp;returnTo=order\">Login</a>");
+            echo("<a class=\"btn btn-s btn-success cart-order\" href=\"index.php?page=login&amp;returnTo=order&step=adress\">Login</a>");
         }
     }
     
