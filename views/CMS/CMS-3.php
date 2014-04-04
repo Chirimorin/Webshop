@@ -24,12 +24,11 @@ function editAProduct(){
 
     
     if(isset($_POST['editproduct'])){
-        edit_Product_Post_Data($_POST['id'], $_POST['name'], $_POST['description'], $_POST['longdiscription'], $_POST['image'], $_POST['categoryid'], $_POST['price'], $_POST['rarity']);
+        edit_Product_Post_Data($_POST['id'], $_POST['name'], $_POST['description'], $_POST['longdescription'], $_POST['image'], $_POST['categoryid'], $_POST['price'], $_POST['rarity']);
         showAllProducts();
     }
     elseif(isset($_POST['newproduct'])){
-    	echo "hier kom ik nog";
-    	add_Product_Post_Data($_POST['id'], $_POST['name'], $_POST['description'], $_POST['longdiscription'], $_POST['image'], $_POST['categoryid'], $_POST['price'], $_POST['rarity']);
+    	add_Product_Post_Data($_POST['name'], $_POST['description'], $_POST['longdescription'], $_POST['image'], $_POST['categoryid'], $_POST['price'], $_POST['rarity']);
     	showAllProducts();
     }
     elseif (isset($_GET['product'])){

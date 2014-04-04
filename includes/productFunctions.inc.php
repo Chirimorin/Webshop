@@ -125,7 +125,7 @@ function editProduct($product)
             </div>
             <div class=\"form-group\">
                 <label for=\"product_edit_category\">Category</label>
-                <select id=\"product_edit_category\"  class=\"form-control\" name=\"category\" required>
+                <select id=\"product_edit_category\"  class=\"form-control\" name=\"categoryid\" required>
                 ");
 			foreach ($categories as $category) {
 
@@ -141,11 +141,11 @@ function editProduct($product)
             </div>
             <div class=\"form-group\">
                 <label for=\"product_edit_image\">Image Url</label>
-                <input id=\"product_edit_image\" value=\"" . $product->get('image') . "\" class=\"form-control\" type=\"text\" name=\"description\" required>
+                <input id=\"product_edit_image\" value=\"" . $product->get('image') . "\" class=\"form-control\" type=\"text\" name=\"image\" required>
             </div>
             <div class=\"form-group\">
                 <label for=\"product_edit_rarity\">Rarity</label>
-                <select id=\"product_edit_rarity\" class=\"form-control\" name=\"category\" required>
+                <select id=\"product_edit_rarity\" class=\"form-control\" name=\"rarity\" required>
                 ");
 			foreach ($rarities as $rarity) {
 
@@ -191,7 +191,7 @@ function addNewProduct()
             </div>
             <div class=\"form-group\">
                 <label for=\"product_new_category\">Category</label>
-                <select id=\"product_new_category\"  class=\"form-control\" name=\"category\" required>
+                <select id=\"product_new_category\"  class=\"form-control\" name=\"categoryid\" required>
                 ");
 			foreach ($categories as $category) {
 		    		echo ("<option value=\"".$category->get('id')."\">".$category->get('name')."</option>");
@@ -201,11 +201,11 @@ function addNewProduct()
             </div>
             <div class=\"form-group\">
                 <label for=\"product_new_image\">Image Url</label>
-                <input id=\"product_new_image\"  class=\"form-control\" type=\"text\" name=\"description\" required>
+                <input id=\"product_new_image\"  class=\"form-control\" type=\"text\" name=\"image\" required>
             </div>
             <div class=\"form-group\">
                 <label for=\"product_new_rarity\">Rarity</label>
-                <select id=\"product_new_rarity\"  class=\"form-control\" name=\"category\" required>
+                <select id=\"product_new_rarity\"  class=\"form-control\" name=\"rarity\" required>
                 ");
 			foreach ($rarities as $rarity) {
 		    		echo ("<option value=\"".$rarity['rarity']."\">".$rarity['rarity']."</option>");

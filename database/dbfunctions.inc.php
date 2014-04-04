@@ -207,7 +207,7 @@
         unset($db);
     }
 
-    function add_Product_Post_Data($id, $name, $description, $longdescription, $image, $categoryid, $price, $rarity){
+    function add_Product_Post_Data($name, $description, $longdescription, $image, $categoryid, $price, $rarity){
         include_once("database/db.class.php");
         $db = new DBClass();
         $clearName = $db->clearText($name);
