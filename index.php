@@ -5,6 +5,17 @@
     require_once("classes/login.class.php");
     $login = new Login();
 
+    if (isset($login)) {
+        if ($login->errors)
+        {
+            if (isset($_GET['page']))
+            {
+                $_GET['returnTo'] = $_GET['page'];
+            }
+            $_GET['page'] = "login";
+        }
+    }
+    
 	include("layout/header.php");
 	include("layout/menu.php");
 	
@@ -22,7 +33,7 @@
         }
     }
 
-	 
+	
 	
 	if (isset($_GET['page']))
 	{
