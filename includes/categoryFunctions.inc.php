@@ -16,7 +16,7 @@
 
     function showCategory($category)
     {
-        echo $category->get('name') . ", " . $category->get('description') . " <a href=\"index.php?page=cms&amp;cmsid=2&amp;category=".$category->get('id')."\">edit Category</a></br>";
+        echo $category->get('name') . ", " . $category->get('description') . " <a href=\"index.php?page=cms&amp;cmsid=2&amp;category=".$category->get('id')."&amp;method=edit\">Edit Category</a> <a href=\"index.php?page=cms&amp;cmsid=2&amp;category=".$category->get('id')."&amp;method=remove\">Remove Category</a></br>";
     }
 
     function editCategory($category)
@@ -29,8 +29,8 @@
                     <input id=\"category_edit_name\" class=\"form-control\" name=\"name\" type=\"text\" value=\"" . $category->get('name') . "\" required>
                 </div>
                 <div class=\"form-group\">
-                    <label for=\"category_edit_name\">Description</label>
-                    <input id=\"category_edit_name\" value=\"" . $category->get('description') . "\" class=\"form-control\" type=\"text\" name=\"description\" required>
+                    <label for=\"category_edit_description\">Description</label>
+                    <input id=\"category_edit_description\" value=\"" . $category->get('description') . "\" class=\"form-control\" type=\"text\" name=\"description\" required>
                 </div>
                 <button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=2'\">Back to all Categories</button>
                 <button type=\"submit\" class=\"btn btn-lg btn-default\" name=\"editcategory\" value=\"Edit Category\">Save changes</button>
@@ -47,8 +47,8 @@
                     <input id=\"category_new_name\" class=\"form-control\" placeholder=\"Put here the category name\" name=\"name\" type=\"text\" required>
                 </div>
                 <div class=\"form-group\">
-                    <label for=\"category_new_name\">Description</label>
-                    <input id=\"category_new_name\" class=\"form-control\" type=\"text\" placeholder=\"Put here the category description\"name=\"description\" required>
+                    <label for=\"category_new_description\">Description</label>
+                    <input id=\"category_new_description\" class=\"form-control\" type=\"text\" placeholder=\"Put here the category description\"name=\"description\" required>
                 </div>
                 <button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=2'\">Back to all Categories</button>
                 <button type=\"submit\" class=\"btn btn-lg btn-default\" name=\"newcategory\" value=\"New Category\">Add Category</button>

@@ -18,6 +18,10 @@ function editACategory(){
     editCategory($category);
 }
 
+
+
+
+
     
     if(isset($_POST['editcategory'])){
         edit_Category_Post_Data($_POST['id'], $_POST['name'], $_POST['description']);
@@ -32,8 +36,14 @@ function editACategory(){
     		include_once("includes/categoryFunctions.inc.php");
 			addNewCategory();
     	}
-    	else{
+    	elseif(isset($_GET['method']) && $_GET['method'] == "edit"){
         	editACategory();
+        }
+        elseif(isset($_GET['method']) && $_GET['method'] == "remove"){
+        	include_once("includes/categoryFunctions.inc.php");
+        	$id = intval($_GET['category']);
+        	remove_Category($id);
+        	showAllCategories();
         }
 
     }

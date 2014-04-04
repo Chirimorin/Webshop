@@ -170,4 +170,68 @@
         
         unset($db);
     }
+
+        function remove_Category($id){
+        include_once("database/db.class.php");
+        $db = new DBClass();
+        $result = $db->runQuery("DELETE FROM category WHERE id = '".$id."';");
+        if($result){
+            echo "Successfully removed category<br>";
+        }
+        
+        
+        unset($db);
+    }
+
+    function get_rarities(){
+        include_once("database/db.class.php");
+
+        $db = new DBClass();
+        $result = $db->runQuery("SELECT distinct(rarity) FROM product;");
+        return $result;
+    }
+
+    function edit_Product_Post_Data($id, $name, $description, $longdescription, $image, $categoryid, $price, $rarity){
+        include_once("database/db.class.php");
+        $db = new DBClass();
+        $clearName = $db->clearText($name);
+        $clearDescription = $db->clearText($description);
+        $clearLongDescription = $db->clearText($longdescription);
+        if($id !== 0){
+            $result = $db->runQuery("UPDATE product SET name='". $clearName."' , description='".$clearDescription."' , longdescription='".$clearLongDescription."' , image='".$image."', categoryid='".$categoryid."' , price='".$price."' , rarity='".$rarity."' WHERE id = '".$id."' ;");
+            if($result){
+                echo "Successfully updated product ". $name . ".<br>";
+            }
+        }
+        
+        unset($db);
+    }
+
+    function add_Product_Post_Data($id, $name, $description, $longdescription, $image, $categoryid, $price, $rarity){
+        include_once("database/db.class.php");
+        $db = new DBClass();
+        $clearName = $db->clearText($name);
+        $clearDescription = $db->clearText($description);
+        $clearLongDescription = $db->clearText($longdescription);
+        $result = $db->runQuery("INSERT INTO product (name, description, longdescription, image, categoryid, price, rarity) VALUES ('". $clearName."' , '".$clearDescription."', '".$clearLongDescription."', '".$image."', '".$categoryid."', '".$price."', '".$rarity."');");
+        if($result){
+            echo "Successfully inserted product ". $name . ".<br>";
+        }
+        
+        
+        unset($db);
+    }
+
+        function remove_Product($id){
+        include_once("database/db.class.php");
+        $db = new DBClass();
+        $result = $db->runQuery("DELETE FROM product WHERE id = '".$id."';");
+        if($result){
+            echo "Successfully removed product<br>";
+        }
+        
+        
+        unset($db);
+    }
+
 ?>
