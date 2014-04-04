@@ -2,11 +2,21 @@
 	if(Login::isUserLoggedIn() && $_SESSION['accesslevel'] !== null && $_SESSION['accesslevel']>1)
 	{
 		include_once("database/dbfunctions.inc.php");
-        
-        if (file_exists("views/CMS/CMS-".$_GET['cmsid'].".php"))
-		{
-			include("views/CMS/CMS-".$_GET['cmsid'].".php");
-		}
+        if (isset($_GET['cmsid']))
+        {
+            if (file_exists("views/CMS/CMS-".$_GET['cmsid'].".php"))
+            {
+                include("views/CMS/CMS-".$_GET['cmsid'].".php");
+            }
+            else
+            {
+                echo "<div class=\"alert alert-danger\">Invalid page specified</div>";
+            }
+        }
+        else
+        {
+            echo "<div class=\"alert alert-danger\">Invalid page specified</div>";
+        }
     }
     else{
     	if(!Login::isUserLoggedIn()){
