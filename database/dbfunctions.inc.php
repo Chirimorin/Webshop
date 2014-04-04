@@ -128,21 +128,46 @@
     function edit_User_Post_Data($username, $accesslevel)
     {
         include_once("database/db.class.php");
-        echo $username . $accesslevel;
-
         $db = new DBClass();
         $clearUsername = $db->clearText($username);
         $intaccesslevel = intval($accesslevel);
-        echo "<br/> " . $clearUsername . $intaccesslevel;
         if($accesslevel !== 0){
-            $db->runQuery("UPDATE user SET accesslevel=". $intaccesslevel." WHERE username = '".$clearUsername."' ;");
-            //echo $result;
-        }
-        else{
-            //echo $result;
+            $result = $db->runQuery("UPDATE user SET accesslevel=". $intaccesslevel." WHERE username = '".$clearUsername."' ;");
+            if($result){
+                echo "Successfully updated ". $username . "&#39;s accesslevel to ".$intaccesslevel.".<br>";
+            }
         }
         
         unset($db);
-        //return $result;
+
+    }
+
+    function edit_Category_Post_Data($id, $name, $description){
+        include_once("database/db.class.php");
+        $db = new DBClass();
+        $clearName = $db->clearText($name);
+        $clearDescription = $db->clearText($description);
+        if($id !== 0){
+            $result = $db->runQuery("UPDATE category SET name='". $clearName."' , description='".$clearDescription."'  WHERE id = '".$id."' ;");
+            if($result){
+                echo "Successfully updated category ". $name . ".<br>";
+            }
+        }
+        
+        unset($db);
+    }
+
+    function add_Category_Post_Data($name, $description){
+        include_once("database/db.class.php");
+        $db = new DBClass();
+        $clearName = $db->clearText($name);
+        $clearDescription = $db->clearText($description);
+        $result = $db->runQuery("INSERT INTO category (name, description) VALUES ('". $clearName."' , '".$clearDescription."');");
+        if($result){
+            echo "Successfully inserted category ". $name . ".<br>";
+        }
+        
+        
+        unset($db);
     }
 ?>
