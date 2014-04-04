@@ -88,6 +88,10 @@
             
             
             echo("<a class=\"btn btn-s btn-success cart-order\" href=\"index.php?page=order&amp;step=payment\">Payment info</a>");
+            
+            //Save total order amount and current items, so that the info on this page is correct for the payment and order pages. 
+            $_SESSION['paidItems'] = $items;
+            $_SESSION['orderAmount'] = $totalPrice;
         }
     }
     else //if required fields
