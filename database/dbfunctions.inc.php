@@ -128,21 +128,17 @@
     function edit_User_Post_Data($username, $accesslevel)
     {
         include_once("database/db.class.php");
-        echo $username . $accesslevel;
-
         $db = new DBClass();
         $clearUsername = $db->clearText($username);
         $intaccesslevel = intval($accesslevel);
-        echo "<br/> " . $clearUsername . $intaccesslevel;
         if($accesslevel !== 0){
-            $db->runQuery("UPDATE user SET accesslevel=". $intaccesslevel." WHERE username = '".$clearUsername."' ;");
-            //echo $result;
-        }
-        else{
-            //echo $result;
+            $result = $db->runQuery("UPDATE user SET accesslevel=". $intaccesslevel." WHERE username = '".$clearUsername."' ;");
+            if($result){
+                echo "Successfully updated ". $username . "&#39;s accesslevel to ".$intaccesslevel.".<br>";
+            }
         }
         
         unset($db);
-        //return $result;
+
     }
 ?>
