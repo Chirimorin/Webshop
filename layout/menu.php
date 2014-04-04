@@ -30,6 +30,17 @@
             }
         }
     }
+
+    function checkCms($cmsid)
+    {
+         if (isset($_GET['cmsid']))
+        {
+            if ($cmsid == $_GET['cmsid'])
+            {
+                echo("active");
+            }
+        }
+    }
 ?>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -64,6 +75,16 @@
         <li class="<?php checkPage("about"); ?>"><a href="index.php?page=about">About</a></li>
         <li class="<?php checkPage("contact"); ?>"><a href="index.php?page=contact">Contact</a></li>
         <li class="<?php checkPage('login'); ?>"><a href="index.php?page=login"><?php echo(login::isUserLoggedIn() ? 'Logout' : 'Login'); ?></a></li>
+        <!-- TODO TOGGLE VISABILITY-->
+        <li class="dropdown <?php checkPage('CMS')?>">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="<?php checkCms(1)?>"><a href="index.php?page=cms&amp;cmsid=1">Users</a></li>
+            <li class="<?php checkCms(2)?>"><a href="index.php?page=cms&amp;cmsid=2">Categories</a></li>
+            <li class="<?php checkCms(3)?>"><a href="index.php?page=cms&amp;cmsid=3">Products</a></li>
+            <li class="<?php checkCms(4)?>"><a href="index.php?page=cms&amp;cmsid=4">Orders</a></li>
+        </ul>
+    </li>
         <li><a id="html5check" href="">Validate HTML5</a></li>
         <li><a id="shoppingCartButton" href="#">Shopping Cart <b class="caret"></b></a></li>
       </ul>

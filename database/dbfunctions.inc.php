@@ -123,4 +123,24 @@
         $result = $db->runQuery("SELECT username, password FROM user WHERE username = '" . $clearUsername . "';");
         return $result;
     }
+
+    function get_all_users()
+    {
+        include_once("database/db.class.php");
+        include_once("classes/user.class.php");
+        
+        $db = new DBClass();
+        $result = $db->runQuery("SELECT username, accesslevel FROM user;");
+        $user = array();
+        $i = 0;
+        if($result !== FALSE){
+            while($row = mysqli_fetch_assoc($result)){
+                $user[$i] = new User($row);
+                $i++;
+            }
+        }        
+        unset($db);
+        
+        return $user;
+    }
 ?>
