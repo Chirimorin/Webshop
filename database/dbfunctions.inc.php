@@ -141,4 +141,33 @@
         unset($db);
 
     }
+
+    function edit_Category_Post_Data($id, $name, $description){
+        include_once("database/db.class.php");
+        $db = new DBClass();
+        $clearName = $db->clearText($name);
+        $clearDescription = $db->clearText($description);
+        if($id !== 0){
+            $result = $db->runQuery("UPDATE category SET name='". $clearName."' , description='".$clearDescription."'  WHERE id = '".$id."' ;");
+            if($result){
+                echo "Successfully updated category ". $name . ".<br>";
+            }
+        }
+        
+        unset($db);
+    }
+
+    function add_Category_Post_Data($name, $description){
+        include_once("database/db.class.php");
+        $db = new DBClass();
+        $clearName = $db->clearText($name);
+        $clearDescription = $db->clearText($description);
+        $result = $db->runQuery("INSERT INTO category (name, description) VALUES ('". $clearName."' , '".$clearDescription."');");
+        if($result){
+            echo "Successfully inserted category ". $name . ".<br>";
+        }
+        
+        
+        unset($db);
+    }
 ?>
