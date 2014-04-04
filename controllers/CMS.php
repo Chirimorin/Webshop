@@ -10,12 +10,11 @@
     }
     else{
     	if(!Login::isUserLoggedIn()){
-    		echo "You need to log in to show this page";
+    		$loginMsg = "You must be logged in to view this page.";
+            include("views/login.php");
     	}
     	else{
-    		echo "You dont have access to this page";
+    		echo "<div class=\"alert alert-danger\">You dont have access to this page</div>";
     	}
     }
 ?>
-
-

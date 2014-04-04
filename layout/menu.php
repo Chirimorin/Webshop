@@ -111,16 +111,25 @@
                 echo('">Login');
             }
         ?></a></li>
-        <!-- TODO TOGGLE VISABILITY-->
-        <li class="dropdown <?php checkPage('cms')?>">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li class="<?php checkCms(1)?>"><a href="index.php?page=cms&amp;cmsid=1">Users</a></li>
-            <li class="<?php checkCms(2)?>"><a href="index.php?page=cms&amp;cmsid=2">Categories</a></li>
-            <li class="<?php checkCms(3)?>"><a href="index.php?page=cms&amp;cmsid=3">Products</a></li>
-            <li class="<?php checkCms(4)?>"><a href="index.php?page=cms&amp;cmsid=4">Orders</a></li>
-          </ul>
-        </li>
+        <?php
+        if (login::isUserLoggedIn())
+        {
+            if ($_SESSION['accesslevel'] > 1)
+            {
+                ?>
+                <li class="dropdown <?php checkPage('cms')?>">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="<?php checkCms(1)?>"><a href="index.php?page=cms&amp;cmsid=1">Users</a></li>
+                    <li class="<?php checkCms(2)?>"><a href="index.php?page=cms&amp;cmsid=2">Categories</a></li>
+                    <li class="<?php checkCms(3)?>"><a href="index.php?page=cms&amp;cmsid=3">Products</a></li>
+                    <li class="<?php checkCms(4)?>"><a href="index.php?page=cms&amp;cmsid=4">Orders</a></li>
+                  </ul>
+                </li>
+                <?php
+            }
+        }
+        ?>
         <li class="dropdown <?php checkPage('webs2')?>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">WEBS2<b class="caret"></b></a>
           <ul class="dropdown-menu">

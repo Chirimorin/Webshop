@@ -1,6 +1,6 @@
 <?php
 function showUser($user){
-	echo $user->get('username') . ", " . $user->get('accesslevel') . " <a href=\"index.php?page=cms&amp;cmsid=1&amp;username=".$user->get('username')."\">edit User</a></br>";
+    echo ("<tr><td>".$user->get('username')."</td><td>".$user->get('accesslevel')."</td><td><a href=\"index.php?page=cms&amp;cmsid=1&amp;username=".$user->get('username')."\">Edit User</a>");
 }
 
 function editUser($user){
