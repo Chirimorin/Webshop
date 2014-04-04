@@ -75,7 +75,7 @@ class Login
      */
     public function doLogout()
     {
-        if (isUserLoggedIn())
+        if (login::isUserLoggedIn())
         {
             $this->messages[] = "You have been logged out.";
         }
