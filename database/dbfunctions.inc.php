@@ -71,26 +71,7 @@
         return $products;
     }
 
-    function get_user($username, $password)
-    {
-        include_once("database/db.class.php");
-        include_once("classes/user.class.php");
-        
-        $db = new DBClass();
-        $clearUsername = $db->clearText($username);
-        $password = hash('sha512', $password + "hosdhgfhou423h5oi42u592y5");
-        $result = $db->runQuery("CALL checkLogin(" . $clearUsername . "," . $password . ");");
-        
-        if($result !== FALSE){
-            while($row = mysqli_fetch_assoc($result)){
-                $user[$i] = new User($row);
-                $i++;
-            }
-        }        
-        unset($db);
-        
-        return $user;
-    }
+
 
     function insert_new_user($username, $password)
     {

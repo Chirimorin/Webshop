@@ -13,7 +13,8 @@
                 include_once("database/db.class.php");
                 
                 $db = new DBClass();
-                $result = $db->runQuery("SELECT * FROM user WHERE username=$username");
+                $secure_username = $db->clearText($username);
+                $result = $db->runQuery("SELECT * FROM user WHERE username=".$secure_username.";");
                 
                 if ($result !== FALSE)
                 {
