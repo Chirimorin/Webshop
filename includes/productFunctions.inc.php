@@ -89,8 +89,8 @@ function showProduct($product)
 				</div>
 				<div class=\"price\">Price: &euro;".$product->get('price')."</div>
 				<div class=\"cart\">
-                    <button type=\"button\" class=\"btn btn-xs btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=3&amp;product=".$product->get('id')."&amp;method=edit'\">Edit</button>
-                    <button type=\"button\" class=\"btn btn-xs btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=3&amp;product=".$product->get('id')."&amp;method=remove'\">Remove</button>
+                    <a class=\"btn btn-xs btn-default\" href=\"index.php?page=cms&amp;cmsid=3&amp;product=".$product->get('id')."&amp;method=edit\">Edit</a>
+                    <a class=\"btn btn-xs btn-default\" href=\"index.php?page=cms&amp;cmsid=3&amp;product=".$product->get('id')."&amp;method=remove\">Remove</a>
                 </div>
 				</div>
 				</div>
@@ -159,7 +159,7 @@ function editProduct($product)
 		    echo("
 		    </select>
 		    </div>
-            <button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=3'\">Back to all Products</button>
+            <a class=\"btn btn-lg btn-default\" href=\"index.php?page=cms&amp;cmsid=3\">Back to all Products</a>
             <button type=\"submit\" class=\"btn btn-lg btn-default\" name=\"editproduct\" value=\"Edit product\">Save changes</button>
         </form>
     ");
@@ -213,7 +213,7 @@ function addNewProduct()
 		    echo("
 		    </select>
 		    </div>
-            <button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=3'\">Back to all Products</button>
+            <a class=\"btn btn-lg btn-default\" href=\"index.php?page=cms&amp;cmsid=3\">Back to all Products</a>
             <button type=\"submit\" class=\"btn btn-lg btn-default\" name=\"newproduct\" value=\"New product\">Save changes</button>
         </form>
     ");   
