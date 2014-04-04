@@ -77,7 +77,12 @@
         <li class="<?php checkPage('login'); ?>"><a href="index.php?<?php
             if (login::isUserLoggedIn())
             {
-                echo('logout=true">Logout');
+                echo('logout=true');
+                foreach ($_GET as $key => $value)
+                    {
+                        echo('&amp;'.$key.'='.$value);
+                    }
+                echo('">Logout');
             }
             else
             {
