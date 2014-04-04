@@ -3,9 +3,9 @@
 	{
 		include_once("database/dbfunctions.inc.php");
         
-        if (file_exists("CMS/CMS-".$_GET['cmsid'].".php"))
+        if (file_exists("views/CMS/CMS-".$_GET['cmsid'].".php"))
 		{
-			include("CMS/CMS-".$_GET['cmsid'].".php");
+			include("views/CMS/CMS-".$_GET['cmsid'].".php");
 		}
     }
     else{
