@@ -92,7 +92,7 @@
                     echo ('&amp;returnTo='.$_GET['page']);
                     foreach ($_GET as $key => $value)
                     {
-                        if ($key != "page" && $key != "returnTo")
+                        if ($key != "page" && $key != "returnTo" && $key != "logout")
                         {
                             echo('&amp;'.$key.'='.$value);
                         }
