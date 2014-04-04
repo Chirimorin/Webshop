@@ -1,7 +1,7 @@
-<a href="index.php">Home</a> > Edit users
+<a href="index.php">Home</a> > Manage users
 
 <div class="page-header">
-    <h1>Edit users</h1>
+    <h1>Manage users</h1>
 </div>
 
 <?php
