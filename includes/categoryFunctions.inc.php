@@ -16,7 +16,10 @@
 
     function showCategory($category)
     {
-        echo $category->get('name') . ", " . $category->get('description') . " <a href=\"index.php?page=cms&amp;cmsid=2&amp;category=".$category->get('id')."&amp;method=edit\">Edit Category</a> <a href=\"index.php?page=cms&amp;cmsid=2&amp;category=".$category->get('id')."&amp;method=remove\">Remove Category</a></br>";
+        echo ("<tr><td>".$category->get('name')."</td>
+        <td>".$category->get('description')."</td>
+        <td><a href=\"index.php?page=cms&amp;cmsid=2&amp;category=".$category->get('id')."\">Edit Category</a></td>
+        <td><a href=\"index.php?page=cms&amp;cmsid=2&amp;category=".$category->get('id')."&amp;method=remove\">Remove Category</a></td>");
     }
 
     function editCategory($category)

@@ -1,12 +1,21 @@
+<a href="index.php">Home</a> > Manage categories
+
+<div class="page-header">
+    <h1>Manage categories</h1>
+</div>
+
 <?php
-    function showAllCategories(){
+function showAllCategories(){
     include_once("includes/categoryFunctions.inc.php");
     include_once("classes/category.class.php");
-    echo "Categories</br> <button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=2&amp;category=new'\">Add Category</button></br>";
+    
     $categories = get_all_categories();
+    
+    echo "<div class=\"col-sm-12\"><table class=\"table\"><thead><tr><th>Name</th><th>Description</th><th>Edit</th><th>Remove</th></tr></thead><tbody>";
     foreach ($categories as $category) {
         showCategory($category);
     }
+    echo("</tbody></table></div><button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=2&amp;category=new'\">Add Category</button>");
 }
 
 function editACategory(){
