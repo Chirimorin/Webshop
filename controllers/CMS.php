@@ -9,11 +9,18 @@
     		case 1:
     			include_once("includes/userFunctions.inc.php");
     			include_once("classes/user.class.php");
-    			echo "Users";
-    			$users = get_all_users();
-    			foreach ($users as $user) {
-    				showUser($user);
+    			if (isset($_GET['username'])){
+    				$username = $_GET['username'];
+    				$user = new User($username);
+    				editUser($user);
     			}
+    			else{
+	    			echo "Users</br>";
+	    			$users = get_all_users();
+	    			foreach ($users as $user) {
+	    				showUser($user);
+	    			}
+	    		}
     			break;
     		case 2:
     			echo "Categories";
