@@ -1,4 +1,4 @@
-<a href="index.php">Home</a> > Contact <br /><br />
+<a href="index.php">Home</a> > Contact
 
 <div class="page-header">
     <h1>Contact</h1>
