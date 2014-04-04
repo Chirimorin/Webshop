@@ -1,4 +1,4 @@
-<a href="index.php">Home</a> > Manage categories
+<a href="index.php">Home</a> > <a href="index.php?page=cms">CMS</a> > Manage categories
 
 <div class="page-header">
     <h1>Manage categories</h1>
@@ -15,7 +15,7 @@ function showAllCategories(){
     foreach ($categories as $category) {
         showCategory($category);
     }
-    echo("</tbody></table></div><button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=2&amp;category=new'\">Add Category</button>");
+    echo("</tbody></table></div><a class=\"btn btn-lg btn-default\" href=\"index.php?page=cms&amp;cmsid=2&amp;category=new\">Add Category</a>");
 }
 
 function editACategory(){

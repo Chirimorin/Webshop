@@ -1,4 +1,4 @@
-<a href="index.php">Home</a> > Manage products <br /><br />
+<a href="index.php">Home</a> > <a href="index.php?page=cms">CMS</a> > Manage products <br /><br />
 
 <?php include('includes/filter.inc.php'); ?>
 
@@ -11,7 +11,7 @@
 function showAllProducts(){
     include_once("includes/productFunctions.inc.php");
     include_once("classes/product.class.php");
-    echo "<button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=3&amp;product=new'\">Add Product</button><br /><br />";
+    echo "<a class=\"btn btn-lg btn-default\" href=\"index.php?page=cms&amp;cmsid=3&amp;product=new\">Add Product</a><br /><br />";
     $products = get_all_products();
     foreach ($products as $product) {
     	showProduct($product);

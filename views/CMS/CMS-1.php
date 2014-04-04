@@ -1,4 +1,4 @@
-<a href="index.php">Home</a> > Manage users
+<a href="index.php">Home</a> > <a href="index.php?page=cms">CMS</a> > Manage users
 
 <div class="page-header">
     <h1>Manage users</h1>
