@@ -1,4 +1,4 @@
-<a href="index.php">Home</a> > About <br /><br />
+<a href="index.php">Home</a> > About
 
 About pagina.
 

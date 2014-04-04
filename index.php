@@ -23,12 +23,12 @@
     if (isset($login)) {
         if ($login->errors) {
             foreach ($login->errors as $error) {
-                echo "<div class=\"alert alert-danger\">$error</div>";
+                echo "<div class=\"alert alert-danger alert-dismissable\">$error<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button></div>";
             }
         }
         if ($login->messages) {
             foreach ($login->messages as $message) {
-                echo "<div class=\"alert alert-success\">$message</div>";
+                echo "<div class=\"alert alert-success alert-dismissable\">$message<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button></div>";
             }
         }
     }

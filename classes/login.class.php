@@ -81,7 +81,8 @@ class Login
         }
         unset($_SESSION['name'],
                 $_SESSION['accesslevel'],
-                $_SESSION['user_login_status']);
+                $_SESSION['user_login_status'],
+                $_SESSION['address']);
     }
 
     /**
