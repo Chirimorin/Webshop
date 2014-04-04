@@ -11,7 +11,7 @@ function showAllCategories(){
     
     $categories = get_all_categories();
     
-    echo "<div class=\"col-sm-12\"><table class=\"table\"><thead><tr><th>Name</th><th>Description</th><th>Edit</th><th>Remove</th></tr></thead><tbody>";
+    echo "<div class=\"col-sm-12\"><table class=\"table table-bordered\"><thead><tr><th>Name</th><th>Description</th><th>Edit</th><th>Remove</th></tr></thead><tbody>";
     foreach ($categories as $category) {
         showCategory($category);
     }

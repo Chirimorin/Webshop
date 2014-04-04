@@ -12,7 +12,7 @@ function showAllUsers(){
     
     $users = get_all_users();
     
-    echo "<div class=\"col-sm-6\"><table class=\"table\"><thead><tr><th>Username</th><th>Access Level</th><th>Edit</th></tr></thead><tbody>";
+    echo "<div class=\"col-sm-6\"><table class=\"table table-bordered\"><thead><tr><th>Username</th><th>Access Level</th><th>Edit</th></tr></thead><tbody>";
     foreach ($users as $user) {
         showUser($user);
     }
