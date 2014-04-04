@@ -33,9 +33,20 @@
 
     function checkCms($cmsid)
     {
-         if (isset($_GET['cmsid']))
+        if (isset($_GET['cmsid']))
         {
             if ($cmsid == $_GET['cmsid'])
+            {
+                echo("active");
+            }
+        }
+    }
+    
+    function checkWebs2($section)
+    {
+        if (isset($_GET['section']))
+        {
+            if ($section == $_GET['section'])
             {
                 echo("active");
             }
@@ -73,7 +84,6 @@
           </ul>
         </li>
         <li class="<?php checkPage("about"); ?>"><a href="index.php?page=about">About</a></li>
-        <li class="<?php checkPage("contact"); ?>"><a href="index.php?page=contact">Contact</a></li>
         <li class="<?php checkPage('login'); ?>"><a href="index.php?<?php
             if (login::isUserLoggedIn())
             {
@@ -103,15 +113,22 @@
         ?></a></li>
         <!-- TODO TOGGLE VISABILITY-->
         <li class="dropdown <?php checkPage('cms')?>">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li class="<?php checkCms(1)?>"><a href="index.php?page=cms&amp;cmsid=1">Users</a></li>
             <li class="<?php checkCms(2)?>"><a href="index.php?page=cms&amp;cmsid=2">Categories</a></li>
             <li class="<?php checkCms(3)?>"><a href="index.php?page=cms&amp;cmsid=3">Products</a></li>
             <li class="<?php checkCms(4)?>"><a href="index.php?page=cms&amp;cmsid=4">Orders</a></li>
-        </ul>
-    </li>
-        <li><a id="html5check" href="">Validate HTML5</a></li>
+          </ul>
+        </li>
+        <li class="dropdown <?php checkPage('webs2')?>">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">WEBS2<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a id="html5check" href="">Validate HTML5</a></li>
+            <li class="<?php checkWebs2("taakverdeling")?>"><a href="index.php?page=webs2&amp;section=taakverdeling">Taakverdeling</a></li>
+            <li class="<?php checkWebs2("opmerkingen")?>"><a href="index.php?page=webs2&amp;section=opmerkingen">Opmerkingen</a></li>
+          </ul>
+        </li>
         <li><a id="shoppingCartButton" href="#">Shopping Cart <b class="caret"></b></a></li>
       </ul>
     </div><!--/.nav-collapse -->
