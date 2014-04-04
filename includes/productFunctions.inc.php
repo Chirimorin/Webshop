@@ -105,7 +105,7 @@ function editProduct($product)
 	$categories = get_all_categories();
 	$rarities = get_rarities();
     echo("
-        <form role=\"form\" method=\"post\" action=\"index.php?page=cms&amp;cmsid=2\" name=\"editproduct\">
+        <form role=\"form\" method=\"post\" action=\"index.php?page=cms&amp;cmsid=3\" name=\"editproduct\">
             <input type=\"hidden\" name=\"id\" value=\"" . $product->get('id') . "\">
             <div class=\"form-group\">
                 <label for=\"product_edit_name\">Name</label>
@@ -172,7 +172,7 @@ function addNewProduct()
 	$categories = get_all_categories();
 	$rarities = get_rarities();
     echo("
-        <form role=\"form\" method=\"post\" action=\"index.php?page=cms&amp;cmsid=2\" name=\"newproduct\">
+        <form role=\"form\" method=\"post\" action=\"index.php?page=cms&amp;cmsid=3\" name=\"newproduct\">
             <div class=\"form-group\">
                 <label for=\"product_new_name\">Name</label>
                 <input id=\"product_new_name\" class=\"form-control\" name=\"name\" type=\"text\"  required>
