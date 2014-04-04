@@ -135,7 +135,7 @@
         $intaccesslevel = intval($accesslevel);
         echo "<br/> " . $clearUsername . $intaccesslevel;
         if($accesslevel !== 0){
-            $db->runQuery("UPDATE accesslevel FROM user WHERE username = '" . $clearUsername . "' VALUES('".$intaccesslevel."';");
+            $db->runQuery("UPDATE user SET accesslevel=". $intaccesslevel." WHERE username = '".$clearUsername."' ;");
             //echo $result;
         }
         else{
