@@ -31,7 +31,7 @@
     
     ksort($items);
     
-    //Generate view for the shopping cart.
+    //Generate view.
     if (count($items) == 0)
     {
         echo("<div class=\"alert alert-warning\">You currently have no items in your shopping cart.</div>");
@@ -79,7 +79,17 @@
             </a></div>
             <input type=\"submit\" class=\"btn btn-s btn-default order-form\" value=\"Update amounts\" />
             </form>
-            <a class=\"btn btn-s btn-success cart-order\" href=\"index.php?page=order\">Place order</a>");
+            ");
+        //$login = new Login();
+        
+        if (login::isUserLoggedIn())
+        {
+            echo("<a class=\"btn btn-s btn-success cart-order\" href=\"index.php?page=order&amp;step=adress\">Adress info</a>");
+        }
+        else
+        {
+            echo("<a class=\"btn btn-s btn-success cart-order\" href=\"index.php?page=login&amp;returnTo=order\">Login</a>");
+        }
     }
     
     $_SESSION["items"] = $items;

@@ -1,32 +1,10 @@
-<?php
-    require_once("database/dbconfig.php");
-    require_once("classes/login.class.php");
-    $login = new Login();
-?>
-
 <a href="index.php">Home</a> > Login
 
 <div class="page-header">
     <h1>Log In</h1>
 </div>
 
-<?php
-    // show potential errors / feedback (from login object)
-    if (isset($login)) {
-        if ($login->errors) {
-            foreach ($login->errors as $error) {
-                echo "<div class=\"alert alert-danger\">$error</div>";
-            }
-        }
-        if ($login->messages) {
-            foreach ($login->messages as $message) {
-                echo "<div class=\"alert alert-success\">$message</div>";
-            }
-        }
-    }
-?>
-
-<form role="form" method="post" action="index.php?page=login" name="loginform">
+<form role="form" method="post" action="index.php?page=<?php echo(isset($_GET['returnTo']) ? $_GET['returnTo'] : 'home'); ?>" name="loginform">
     <div class="form-group">
         <label for="login_input_username">Username</label>
         <input id="login_input_username" placeholder="Enter your username here"class="form-control" type="text" name="user_name" required />
