@@ -1,46 +1,12 @@
 <?php
-	include_once("classes/login.class.php");
-
-
 	if(Login::isUserLoggedIn() && $_SESSION['accesslevel'] !== null && $_SESSION['accesslevel']>1)
 	{
 		include_once("database/dbfunctions.inc.php");
-    	switch($_GET['cmsid']){
-    		case 1:
-    			include_once("includes/userFunctions.inc.php");
-    			include_once("classes/user.class.php");
-    			if(isset($_POST['edituser'])){
-    				echo "post data ". $_POST['username'] . " , " . $_POST['accesslevel'];
-    				edit_User_Post_Data($_POST['username'], $_POST['accesslevel']);
-    				//echo $info;
-    			}
-    			elseif (isset($_GET['username'])){
-    				$username = $_GET['username'];
-    				$user = new User($username);
-    				editUser($user);
-    			}
-    			else{
-	    			echo "Users</br>";
-	    			$users = get_all_users();
-	    			foreach ($users as $user) {
-	    				showUser($user);
-	    			}
-	    		}
-    			break;
-    		case 2:
-    			echo "Categories";
-    			break;
-    		case 3:
-    			echo "Products";
-    			break;
-    		case 4:
-    			echo "Orders";
-    			break;
-    		default:
-    			echo "id# " . $_GET['cmsid'] . " doesnt exist";
-    			break;
-    		
-    	}
+        
+        if (file_exists("CMS/CMS-".$_GET['cmsid'].".php"))
+		{
+			include("CMS/CMS-".$_GET['cmsid'].".php");
+		}
     }
     else{
     	if(!Login::isUserLoggedIn()){
