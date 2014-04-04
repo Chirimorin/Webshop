@@ -124,4 +124,25 @@
         
         return $user;
     }
+
+    function edit_User_Post_Data($username, $accesslevel)
+    {
+        include_once("database/db.class.php");
+        echo $username . $accesslevel;
+
+        $db = new DBClass();
+        $clearUsername = $db->clearText($username);
+        $intaccesslevel = intval($accesslevel);
+        echo "<br/> " . $clearUsername . $intaccesslevel;
+        if($accesslevel !== 0){
+            $db->runQuery("UPDATE accesslevel FROM user WHERE username = '" . $clearUsername . "' VALUES('".$intaccesslevel."';");
+            //echo $result;
+        }
+        else{
+            //echo $result;
+        }
+        
+        unset($db);
+        //return $result;
+    }
 ?>

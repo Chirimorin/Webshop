@@ -14,7 +14,7 @@
                 
                 $db = new DBClass();
                 $secure_username = $db->clearText($username);
-                $result = $db->runQuery("SELECT * FROM user WHERE username=".$secure_username.";");
+                $result = $db->runQuery("SELECT * FROM user WHERE username='".$secure_username."';");
                 
                 if ($result !== FALSE)
                 {

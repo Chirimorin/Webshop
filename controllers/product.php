@@ -1,7 +1,7 @@
 <?php 
     function error($msg)
     {
-        echo("<div class=\"alert alert-danger\"><strong>$msg</strong><br /></div>");
+        echo("<div class=\"alert alert-danger\"><strong>". $msg. "</strong><br /></div>");
     }
     
     function allProducts($title)
