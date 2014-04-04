@@ -18,7 +18,7 @@
     {
         echo ("<tr><td>".$category->get('name')."</td>
         <td>".$category->get('description')."</td>
-        <td><a href=\"index.php?page=cms&amp;cmsid=2&amp;category=".$category->get('id')."\">Edit Category</a></td>
+        <td><a href=\"index.php?page=cms&amp;cmsid=2&amp;category=".$category->get('id')."&amp;method=edit\">Edit Category</a></td>
         <td><a href=\"index.php?page=cms&amp;cmsid=2&amp;category=".$category->get('id')."&amp;method=remove\">Remove Category</a></td>");
     }
 
@@ -35,7 +35,7 @@
                     <label for=\"category_edit_description\">Description</label>
                     <input id=\"category_edit_description\" value=\"" . $category->get('description') . "\" class=\"form-control\" type=\"text\" name=\"description\" required>
                 </div>
-                <button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=2'\">Back to all Categories</button>
+                <a class=\"btn btn-lg btn-default\" href=\"index.php?page=cms&amp;cmsid=2\">Back to all Categories</a>
                 <button type=\"submit\" class=\"btn btn-lg btn-default\" name=\"editcategory\" value=\"Edit Category\">Save changes</button>
             </form>
         ");
@@ -53,7 +53,7 @@
                     <label for=\"category_new_description\">Description</label>
                     <input id=\"category_new_description\" class=\"form-control\" type=\"text\" placeholder=\"Put here the category description\"name=\"description\" required>
                 </div>
-                <button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=2'\">Back to all Categories</button>
+                <a class=\"btn btn-lg btn-default\" href=\"index.php?page=cms&amp;cmsid=2\">Back to all Categories</a>
                 <button type=\"submit\" class=\"btn btn-lg btn-default\" name=\"newcategory\" value=\"New Category\">Add Category</button>
             </form>
         ");       

@@ -54,6 +54,9 @@ function editACategory(){
         	remove_Category($id);
         	showAllCategories();
         }
+        else{
+            echo("<div class=\"alert alert-danger\">An error has occured, please try again.</div>");
+        }
 
     }
     else{
