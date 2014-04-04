@@ -1,8 +1,17 @@
+<a href="index.php">Home</a> > Manage products <br /><br />
+
+<?php include('includes/filter.inc.php'); ?>
+
+<div class="page-header">
+    <h1>Manage products</h1>
+</div>
+
 <?php
-    function showAllProducts(){
+
+function showAllProducts(){
     include_once("includes/productFunctions.inc.php");
     include_once("classes/product.class.php");
-    echo "Products </br> <button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=3&amp;product=new'\">Add Product</button></br>";
+    echo "<button type=\"button\" class=\"btn btn-lg btn-default\" onclick=\"window.location.href='index.php?page=cms&amp;cmsid=3&amp;product=new'\">Add Product</button><br /><br />";
     $products = get_all_products();
     foreach ($products as $product) {
     	showProduct($product);
