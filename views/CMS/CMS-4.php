@@ -21,11 +21,7 @@ function editAorder(){
     editorder($id);
 }
 
-
-
-
-
-    
+   
     if(isset($_POST['editorder'])){
         edit_order_Post_Data($_POST['id'], $_POST['status']);
         showAllorders();

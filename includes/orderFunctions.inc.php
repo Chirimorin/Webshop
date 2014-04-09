@@ -94,11 +94,12 @@ function editOrder($id){
 			    </select>
 			    </div>
 
-            	</form>
+            	
             	");
 	    echo("
 	    	<a class=\"btn btn-lg btn-default\" href=\"index.php?page=cms&amp;cmsid=4\">Back to all Orders</a>
 	    	<button type=\"submit\" class=\"btn btn-lg btn-default\" name=\"editorder\" value=\"Edit Order\">Save changes</button>
+	    	</form>
 	    	");
         
 }

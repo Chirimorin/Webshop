@@ -287,13 +287,10 @@
         function edit_order_Post_Data($id, $status){
             include_once("database/db.class.php");
             $db = new DBClass();
-            $clearName = $db->clearText($name);
-            $clearDescription = $db->clearText($description);
-            $clearLongDescription = $db->clearText($longdescription);
             if($id !== 0){
                 $result = $db->runQuery("CALL edit_order('".$id."' ,'". $status."');");
                 if($result){
-                    echo "Successfully updated order ". $name . ".<br>";
+                    echo "Successfully updated order .<br>";
                 }
             }
             
